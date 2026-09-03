@@ -296,7 +296,7 @@ No. Despite the name, RuneTranslate has nothing to do with Norse runes, the Elde
 
 ### Is RuneTranslate safe?
 
-The installer is not code-signed, so Windows SmartScreen shows an "unrecognised app" warning the first time you run it, and some antivirus engines flag unsigned installers on reputation alone. That warning is about the missing signature, not about anything found in the file. A SHA-256 checksum is published with every release so you can verify what you downloaded, and **the only place to get it is [runetranslate.com/download](https://runetranslate.com/download)** — no installer is distributed from this repository, and anything calling itself RuneTranslate anywhere else is not ours.
+The installer is not code-signed, so Windows SmartScreen shows an "unrecognised app" warning the first time you run it, and some antivirus engines flag unsigned installers on reputation alone. That warning is about the missing signature, not about anything found in the file. A SHA-512 checksum is published with every release so you can verify what you downloaded, and **the only place to get it is [runetranslate.com/download](https://runetranslate.com/download)** — no installer is distributed from this repository, and anything calling itself RuneTranslate anywhere else is not ours.
 
 What it does on your disk: it reads your game's files and writes the translated build to a separate output folder you choose, so the original game folder is left alone. The one exception is Cheat Mode, which modifies a game in place after you point it at that folder deliberately, and which has a one-click Remove.
 
