@@ -7,7 +7,7 @@
 ### Translate Japanese games into English — and 34 other languages
 
 **A Windows desktop app that reads a game's own files, translates every line, and exports a playable build in your language.**
-RPG Maker, Ren'Py, Kirikiri, Wolf RPG, Unity, Unreal, Godot, NScripter and eight more engines, plus gettext catalogs. No overlay. No hook. No server left running.
+RPG Maker, Ren'Py, Kirikiri, Wolf RPG, Unity, Unreal, Godot, GameMaker, NScripter and eight more engines, plus gettext catalogs. No overlay. No hook. No server left running.
 
 [![Download for Windows](https://img.shields.io/badge/Download-Windows%2010%20%2F%2011-EC4899?style=for-the-badge&logo=windows&logoColor=white)](https://runetranslate.com/download)
 [![RuneTranslate website](https://img.shields.io/badge/Website-runetranslate.com-7C9EFF?style=for-the-badge&logo=firefoxbrowser&logoColor=white)](https://runetranslate.com)
@@ -47,7 +47,7 @@ There are only three ways to get Japanese out of a game: **patch its files**, **
 
 RuneTranslate is a file patcher — an MTL tool of the kind fan-translation projects use — and a thorough one. Point it at a game folder and it identifies the engine, opens the archives, pulls every translatable string (dialogue, choices, item names, skill descriptions, menus, system terms, plugin text) into an editable project, translates them through the provider you pick, and writes a **playable build** into an output folder of your choosing. Your original game is never modified.
 
-- **17 engines and formats**, one workflow — see the [full table](#supported-game-engines-and-file-formats)
+- **18 engines and formats**, one workflow — see the [full table](#supported-game-engines-and-file-formats)
 - **10 translation providers** — DeepL, OpenAI, Claude, DeepSeek, Google, a local model, and more. **Five need no API key at all**
 - **35 languages**, source and target — Japanese is the default source, not a hard-coded one
 - **Runs on your PC.** Translation requests go straight from your machine to the provider you picked, and API keys are encrypted locally and never leave. The only things that reach RuneTranslate's servers are the ones that have to — sign-in, updates, and the cloud features you opt into (translation memory, collaborative projects, and the Image Studio's text detection)
@@ -93,7 +93,7 @@ The build is not code-signed, so Windows SmartScreen shows an "unrecognised app"
 
 ## Supported game engines and file formats
 
-**17 engines and formats** — sixteen game engines plus the gettext catalog format, all unlocked on the free tier. RPG Maker takes two rows below because the Ruby generation (XP / VX / Ace) is a different reader, but it is one engine.
+**18 engines and formats** — seventeen game engines plus the gettext catalog format, all unlocked on the free tier. RPG Maker takes two rows below because the Ruby generation (XP / VX / Ace) is a different reader, but it is one engine.
 
 | Engine | Status | What it reads, and what you get |
 |---|---|---|
@@ -114,13 +114,14 @@ The build is not code-signed, so Windows SmartScreen shows an "unrecognised app"
 | **[YU-RIS](https://runetranslate.com/engines/yu-ris)** | Best-effort | raiL-soft's engine: reads `.ypf` packages and the compiled YSTB scripts inside them, working out the script key on its own, and exports translated scripts as a loose-file override. |
 | **[AliceSoft System 3.x / 4](https://runetranslate.com/engines/alicesoft)** | Full | The Rance and Evenicle era — `.ald` / `.afa` archives and the message text inside `System39.ain` or a per-game `.ain`, exported by loose-file override. |
 | **[LiveMaker / LiveNovel](https://runetranslate.com/engines/livemaker)** | Best-effort | Dialogue and menu choices out of the compiled `.lsb` scenarios inside the VFF archive embedded in the `.exe`, repacked into a runnable translated copy. |
+| **[GameMaker](https://runetranslate.com/engines/gamemaker)** | Full | GameMaker and GameMaker Studio games: reads and writes the compiled `data.win` (`game.unx` on Linux, `game.ios` on macOS) itself and follows each string through the game's code, so the text the game draws is offered while lookup keys and file names stay untouched. Language files beside the game (JSON, CSV, INI, Yarn and Chatterbox) are listed too, and letters the translation needs are added to the game's own fonts in a matching style. ✅ *Confirmed playable in-game.* |
 | **[Gettext `.po` / `.mo`](https://runetranslate.com/engines/gettext)** | Format | Not an engine but a catalog format — what Python, pygame, SDL and anything localized with Poedit or Weblate ships. Writes both a fresh locale and the catalog the game is already loading, so the text actually appears. |
 
 **Status** is the app's own support level, shown to you again when you open a game: *Full* means the engine is handled end to end; *Best-effort* means games in that family vary enough that some need a hand — and the app tells you when it hits something it cannot read, rather than failing quietly. A ✅ marks an engine where a **real game was translated, exported, launched and played with translated text on screen**, on a recorded app version.
 
 **Engine not listed?** Many games are built on a supported engine without saying so — open the folder in *New project* and let detection answer. If it really is something new, [say so on Discord](https://discord.gg/ZtsfZu7YsW) or email [runetranslate@gmail.com](mailto:runetranslate@gmail.com) with the game and a folder listing: most of the engines above were added because somebody sent in a game that would not open.
 
-📖 Per-engine walkthroughs: **[RPG Maker](https://runetranslate.com/blog/how-to-translate-rpg-maker-games)** · **[Ren'Py](https://runetranslate.com/blog/how-to-translate-renpy-games)** · **[Kirikiri](https://runetranslate.com/blog/how-to-translate-kirikiri-visual-novels)** · **[Wolf RPG](https://runetranslate.com/blog/how-to-translate-wolf-rpg-to-english)** · **[Unity](https://runetranslate.com/blog/how-to-translate-unity-games)** · **[Unreal](https://runetranslate.com/blog/how-to-translate-unreal-engine-games)** · **[Godot](https://runetranslate.com/blog/how-to-translate-godot-games)** · **[TyranoBuilder](https://runetranslate.com/blog/how-to-translate-tyranobuilder-games)** · **[NScripter](https://runetranslate.com/blog/how-to-translate-nscripter-onscripter-games)** · **[SRPG Studio](https://runetranslate.com/blog/how-to-translate-srpg-studio-games)** · **[Artemis](https://runetranslate.com/blog/how-to-translate-artemis-games)** · **[YU-RIS](https://runetranslate.com/blog/how-to-translate-yu-ris-games)** · **[AliceSoft](https://runetranslate.com/blog/how-to-translate-alicesoft-games)** · **[.po / .mo](https://runetranslate.com/blog/how-to-translate-po-and-mo-files)**
+📖 Per-engine walkthroughs: **[RPG Maker](https://runetranslate.com/blog/how-to-translate-rpg-maker-games)** · **[Ren'Py](https://runetranslate.com/blog/how-to-translate-renpy-games)** · **[Kirikiri](https://runetranslate.com/blog/how-to-translate-kirikiri-visual-novels)** · **[Wolf RPG](https://runetranslate.com/blog/how-to-translate-wolf-rpg-to-english)** · **[Unity](https://runetranslate.com/blog/how-to-translate-unity-games)** · **[Unreal](https://runetranslate.com/blog/how-to-translate-unreal-engine-games)** · **[Godot](https://runetranslate.com/blog/how-to-translate-godot-games)** · **[TyranoBuilder](https://runetranslate.com/blog/how-to-translate-tyranobuilder-games)** · **[NScripter](https://runetranslate.com/blog/how-to-translate-nscripter-onscripter-games)** · **[SRPG Studio](https://runetranslate.com/blog/how-to-translate-srpg-studio-games)** · **[Artemis](https://runetranslate.com/blog/how-to-translate-artemis-games)** · **[YU-RIS](https://runetranslate.com/blog/how-to-translate-yu-ris-games)** · **[AliceSoft](https://runetranslate.com/blog/how-to-translate-alicesoft-games)** · **[GameMaker](https://runetranslate.com/engines/gamemaker)** · **[.po / .mo](https://runetranslate.com/blog/how-to-translate-po-and-mo-files)**
 
 ➡️ **Every engine in detail: [docs/engines.md](docs/engines.md)** — and if you are staring at an extension you do not recognise (`.xp3`, `.wolf`, `.rpa`, `.locres`, `.ypf`, `.pfs`…), **[docs/file-formats.md](docs/file-formats.md)** says what it is.
 
@@ -246,7 +247,7 @@ Connect Claude Desktop to RuneTranslate over the open MCP standard and just talk
 | | **Free** | **Supporter** | **Pro** | **Developer** |
 |---|---|---|---|---|
 | | $0 | $3 / month | $5 / month | [contact us](mailto:runetranslate@gmail.com) |
-| All 17 engines & 35 languages | ✅ | ✅ | ✅ | ✅ |
+| All 18 engines & 35 languages | ✅ | ✅ | ✅ | ✅ |
 | All 10 providers | ✅ | ✅ | ✅ | ✅ |
 | Full editor, AI refiner, save editor, Cheat Mode core | ✅ | ✅ | ✅ | ✅ |
 | Join a collaborative project | ✅ | ✅ | ✅ | ✅ |
@@ -402,6 +403,7 @@ This repository is RuneTranslate's public information hub — the app itself is 
 <a href="docs/engines.md#yu-ris">YU-RIS</a> ·
 <a href="docs/engines.md#alicesoft-system-3x--4">AliceSoft System</a> ·
 <a href="docs/engines.md#livemaker--livenovel">LiveMaker</a> ·
+<a href="docs/engines.md#gamemaker">GameMaker</a> ·
 <a href="docs/engines.md#gettext-po--mo">gettext</a>
 </sub>
 

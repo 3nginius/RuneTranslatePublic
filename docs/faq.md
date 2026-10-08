@@ -10,7 +10,7 @@
 
 A Windows desktop app that translates a game by reading its own data files. It detects the engine, extracts every line of dialogue, menu text, item name and choice into an editable project, translates them through the provider you choose, and exports a **playable build** in your language. It is not an overlay and not a hook — nothing runs alongside the game afterwards.
 
-Seventeen engines and formats are supported — sixteen game engines plus the gettext `.po` / `.mo` catalog format — and 35 languages.
+Eighteen engines and formats are supported — seventeen game engines plus the gettext `.po` / `.mo` catalog format — and 35 languages.
 
 ### What do I need before I start?
 
@@ -148,7 +148,7 @@ The interface is translated into 18 languages, Arabic included with a right-to-l
 
 ### Which engines are supported?
 
-Sixteen game engines, plus the gettext catalog format — seventeen entries in total: RPG Maker MV/MZ and XP/VX/VX Ace, Ren'Py, Kirikiri/KAG, Wolf RPG, TyranoBuilder/TyranoScript, custom Electron visual novels, Unity, Unreal Engine 4/5, Godot, RPG Developer Bakin, SRPG Studio, NScripter/ONScripter, Artemis, YU-RIS, AliceSoft System and LiveMaker. → **[details per engine](engines.md)**
+Seventeen game engines, plus the gettext catalog format — eighteen entries in total: RPG Maker MV/MZ and XP/VX/VX Ace, Ren'Py, Kirikiri/KAG, Wolf RPG, TyranoBuilder/TyranoScript, custom Electron visual novels, Unity, Unreal Engine 4/5, Godot, RPG Developer Bakin, SRPG Studio, NScripter/ONScripter, Artemis, YU-RIS, AliceSoft System, LiveMaker and GameMaker. → **[details per engine](engines.md)**
 
 ### My game's engine is not on the list. What now?
 

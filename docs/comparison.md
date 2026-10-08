@@ -56,7 +56,7 @@ An overlay ignores the game entirely: it captures part of your display, runs opt
 
 | | Approach | Engine coverage | Result | Platform | Licence |
 |---|---|---|---|---|---|
-| **RuneTranslate** | File patcher | 17 engines and formats | A playable translated build you keep | Windows 10 / 11 | Proprietary (free tier, paid plans) |
+| **RuneTranslate** | File patcher | 18 engines and formats | A playable translated build you keep | Windows 10 / 11 | Proprietary (free tier, paid plans) |
 | **Translator++** | File patcher | Narrower built-in set, plus a custom-parser system and RPG Maker 2000/2003 | A playable translated build | Windows 7 SP1+ | GPL-3.0-or-later |
 | **MTool** | Runtime hook | RPG Maker focus | A live session | Windows 7+, Android 11+ | Proprietary |
 | **Sugoi Toolkit** | Offline MT engine + hook | Varies | Mostly a live session | Windows 10+ | Mixed (NTT model licence; Sugoi Hook GPL-3.0) |
@@ -72,7 +72,7 @@ An overlay ignores the game entirely: it captures part of your display, runs opt
 
 The closest comparison on this page, because both tools do the same *kind* of thing: open the game's own files, put the strings in an editor, and write back a playable build. Neither reads memory at runtime and neither draws an overlay.
 
-The difference is how far the file-level coverage reaches and who decides what is safe to translate. RuneTranslate parses **17 engines and formats itself** — Unity on both Mono and IL2CPP, Unreal 4/5, Godot, Bakin, SRPG Studio, Artemis, YU-RIS, AliceSoft, LiveMaker and the rest — and builds the filters that keep scripts, tags, asset paths and lookup keys *out* of the translation into the extractor, then runs them again at export. It also brings ten translation providers, an [Image Studio](https://runetranslate.com/image-translation) for text painted into artwork, a save editor, Cheat Mode, translation memory and live collaboration in the same app.
+The difference is how far the file-level coverage reaches and who decides what is safe to translate. RuneTranslate parses **18 engines and formats itself** — Unity on both Mono and IL2CPP, Unreal 4/5, Godot, Bakin, SRPG Studio, Artemis, YU-RIS, AliceSoft, LiveMaker, GameMaker and the rest — and builds the filters that keep scripts, tags, asset paths and lookup keys *out* of the translation into the extractor, then runs them again at export. It also brings ten translation providers, an [Image Studio](https://runetranslate.com/image-translation) for text painted into artwork, a save editor, Cheat Mode, translation memory and live collaboration in the same app.
 
 Translator++ is free and open source (GPL-3.0-or-later), and it holds two places of its own: **RPG Maker 2000 and 2003**, which RuneTranslate has no adapter for, and formats nobody has written a parser for at all, because its Custom Parser lets you define one yourself. Plenty of people keep both.
 
@@ -80,7 +80,7 @@ Translator++ is free and open source (GPL-3.0-or-later), and it holds two places
 
 ## MTool alternative — RuneTranslate vs MTool
 
-MTool hooks the running game, so it is quick to start and leaves nothing behind. RuneTranslate patches the files, so it takes a few minutes longer up front and hands you a build you can replay, back up and share as a patch — with an editor for fixing what the machine got wrong, a glossary that keeps character names consistent across a whole game, and 17 engines rather than an RPG Maker focus.
+MTool hooks the running game, so it is quick to start and leaves nothing behind. RuneTranslate patches the files, so it takes a few minutes longer up front and hands you a build you can replay, back up and share as a patch — with an editor for fixing what the machine got wrong, a glossary that keeps character names consistent across a whole game, and 18 engines rather than an RPG Maker focus.
 
 If you want to read one game tonight and never think about it again, a hook is a reasonable answer. If you want the translation to exist tomorrow, it has to be written to disk.
 
@@ -122,7 +122,7 @@ The cost is that every line goes through recognition first, so stylised fonts, v
 
 ## What RuneTranslate does that the others do not
 
-**Seventeen engines and formats in one app.** RPG Maker MV/MZ *and* the Ruby XP/VX/Ace generation, Ren'Py, Kirikiri/KAG, Wolf RPG 2.x and 3.x, TyranoBuilder, Electron and Cocos Creator shells, Unity on both Mono and IL2CPP, Unreal 4/5, Godot, Bakin, SRPG Studio, NScripter/ONScripter, Artemis, YU-RIS, AliceSoft System, LiveMaker and gettext catalogs. Most tools cover one engine family well; this covers the shelf. → **[the full list](engines.md)**
+**Eighteen engines and formats in one app.** RPG Maker MV/MZ *and* the Ruby XP/VX/Ace generation, Ren'Py, Kirikiri/KAG, Wolf RPG 2.x and 3.x, TyranoBuilder, Electron and Cocos Creator shells, Unity on both Mono and IL2CPP, Unreal 4/5, Godot, Bakin, SRPG Studio, NScripter/ONScripter, Artemis, YU-RIS, AliceSoft System, LiveMaker, GameMaker and gettext catalogs. Most tools cover one engine family well; this covers the shelf. → **[the full list](engines.md)**
 
 **Ten translation providers, mixed in one run.** DeepL, OpenAI, Anthropic Claude, DeepSeek, an OpenAI-compatible endpoint, free Google, two free DeepL routes, on-device Gemini Nano, and your own local model. Provider routing can send menu strings to a free engine and dialogue to a premium one in the same run.
 
@@ -162,7 +162,7 @@ Screen OCR. Nothing that reads files can help you, and that is not a criticism o
 
 ### My backlog is a mix of engines
 
-RuneTranslate — one app covers seventeen engines and formats and works out which one you handed it, including every RPG Maker from XP and VX Ace through MV and MZ. One gap, stated plainly: RPG Maker **2000 and 2003** game text, where Translator++ has a dedicated parser and RuneTranslate has only save-file editing.
+RuneTranslate — one app covers eighteen engines and formats and works out which one you handed it, including every RPG Maker from XP and VX Ace through MV and MZ. One gap, stated plainly: RPG Maker **2000 and 2003** game text, where Translator++ has a dedicated parser and RuneTranslate has only save-file editing.
 
 ### My text is in a format nobody has written a parser for
 

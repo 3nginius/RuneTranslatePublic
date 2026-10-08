@@ -2,7 +2,7 @@
 
 **[← Back to the README](../README.md)** · **[Engine hub on runetranslate.com](https://runetranslate.com/engines)** · **[Download](https://runetranslate.com/download)**
 
-RuneTranslate supports **17 engines and formats**, every one of them unlocked on the free tier. The two RPG Maker generations count as one entry there but get a section each below, so there are eighteen sections on this page. It is the long version of the table in the README: what each adapter detects, what it pulls out, what the export actually looks like, and where the edges are.
+RuneTranslate supports **18 engines and formats**, every one of them unlocked on the free tier. The two RPG Maker generations count as one entry there but get a section each below, so there are nineteen sections on this page. It is the long version of the table in the README: what each adapter detects, what it pulls out, what the export actually looks like, and where the edges are.
 
 Three things are true of every engine below:
 
@@ -33,6 +33,7 @@ Three things are true of every engine below:
 - [YU-RIS](#yu-ris)
 - [AliceSoft System 3.x / 4](#alicesoft-system-3x--4)
 - [LiveMaker / LiveNovel](#livemaker--livenovel)
+- [GameMaker](#gamemaker)
 - [Gettext `.po` / `.mo`](#gettext-po--mo)
 - [My engine is not here](#my-engine-is-not-here)
 
@@ -301,6 +302,20 @@ The Rance and Evenicle era of AliceSoft's in-house engine, handled in pure TypeS
 **Export:** a full runnable copy of the game with the archive repacked into the executable. The rebuilt archive is re-opened and re-parsed before anything is overwritten, so a half-written repack never reaches your output folder.
 
 **Worth knowing:** LiveMaker text is CP932, so targets outside that character set are out of scope; anything unencodable is flagged rather than silently mangled.
+
+---
+
+## GameMaker
+
+**Status: Full** - [engine page and step-by-step guide](https://runetranslate.com/engines/gamemaker)
+
+**Detected by** a GameMaker data file where the runner looks for it: `data.win` beside the Windows executable, `assets/game.unx` in a Linux build, `game.ios` inside a macOS `.app`, or a GameMaker Studio 1.4 game packed into a single executable.
+
+**What comes out:** every string the game's compiled code sends to a draw or message function, plus the language files a game ships beside its data (JSON, CSV, INI / key=value, Yarn and Chatterbox dialogue) and any gettext catalogs. Lookup keys, file and asset names, and strings the game only compares against stay out, with the reason shown.
+
+**Export:** a translated copy whose data file is rewritten and read back byte for byte before it is kept. When the translation needs letters the game's fonts lack (accented Latin, Cyrillic, Vietnamese, Chinese, Japanese, Korean, Thai), they are added to the game's own fonts in a matching style, and Chinese, Japanese and Thai lines are broken only where the text box width is known. A game packed into a single executable is unpacked into the output folder. A macOS or Linux build gets only the changed files, to copy over the install. Some Steam builds need the export written into the game folder itself.
+
+**Worth knowing:** verified in game on GameMaker Studio 1.4 and 2.3 and on GameMaker 2022 LTS, 2023 and 2024; other versions open with a warning. Games compiled to native code (YYC) get only their language files and fonts translated, because their text is inside the executable. Right-to-left languages are not supported.
 
 ---
 

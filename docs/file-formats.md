@@ -218,6 +218,12 @@ Under `resources/`. Electron mounts this archive **in preference to** a loose `r
 
 Tyrano inherits KAG's `.ks` scenario format. A Tyrano game may be an Electron build (inside `app.asar`) or loose HTML5 files at the root. → [TyranoBuilder](engines.md#tyranobuilder--tyranoscript)
 
+### `data.win` · `game.unx` · `game.ios` - GameMaker data file
+
+The one file holding a GameMaker game's compiled code, strings, fonts and textures: `data.win` beside the Windows executable, `game.unx` under `assets/` in a Linux build, `game.ios` inside a macOS `.app`. Larger games add `audiogroup*.dat` sound files beside it, and some GameMaker Studio 1.4 games ship all of it inside one self-extracting `.exe`.
+
+**Readable?** Not as text: the strings sit in a table the compiled code points into. RuneTranslate reads and writes the file itself. → [GameMaker](engines.md#gamemaker)
+
 ---
 
 ## Portable text formats

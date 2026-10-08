@@ -30,7 +30,7 @@ This page lists everything, with the minimum tier next to it.
 
 | Feature | Tier | What it is |
 |---|---|---|
-| **All 17 engines and formats** | Free | No engine is paid-only. [Full list](engines.md) |
+| **All 18 engines and formats** | Free | No engine is paid-only. [Full list](engines.md) |
 | **All 10 translation providers** | Free | No provider is paid-only either. Five need no API key at all — four free cloud routes plus a local model on your own PC |
 | **35 source and target languages** | Free | Any of the 35 can be the source; Japanese is only the default |
 | **Select files to translate** | Free | Tick exactly which of the game's files to include, with a per-file string count, so a test run costs a few hundred lines instead of the whole game |
