@@ -14,7 +14,7 @@ Eighteen engines and formats are supported — seventeen game engines plus the g
 
 ### What do I need before I start?
 
-Windows 10 or 11 (x64), the game folder, and a free Patreon sign-in. That is all. You do not need an API key, a compiler, Python, or any runtime installed first — and you do not need to know anything about the engine your game uses.
+Windows 10 or 11 (x64) or Linux (the Steam Deck included), the game folder, and a free Patreon sign-in. That is all. You do not need an API key, a compiler, Python, or any runtime installed first, and you do not need to know anything about the engine your game uses.
 
 ### How do I translate a game?
 
@@ -200,13 +200,13 @@ Yes, over the open MCP standard. Connect Claude Desktop and talk to it about you
 
 ### Does it run on Linux, macOS or the Steam Deck?
 
-There is no native Linux or macOS build, and none is planned — the games it translates are overwhelmingly Windows games. But RuneTranslate runs well on **Linux and the Steam Deck through Wine or Proton**: install the ordinary Windows version into a prefix and you get the same engines, providers, editor and export. That is a natural fit, since you are already running those games through the same compatibility layer. Most engines need nothing extra; RPG Developer Bakin additionally wants the .NET Framework in the prefix, which winetricks installs.
+Yes on **Linux and the Steam Deck, natively**: download the Linux AppImage from [runetranslate.com/download](https://runetranslate.com/download), allow it to run as a program (right-click > Properties > Permissions, or `chmod +x`) and open it; on a Steam Deck, do this in Desktop Mode. It has the same engines, providers, editor and export as the Windows version, and it keeps itself up to date. Games, and the few helper tools that are Windows programs, start through Proton or Wine, which you already use to play them. If the AppImage will not start on your system, the Windows version still runs under Wine or Proton. There is no macOS build.
 
 ### Windows says the installer is unrecognised. Is it safe?
 
 The build is not code-signed, so SmartScreen shows its "unrecognised app" warning on first run — that is a statement about a certificate, not about the file's contents. A checksum is published alongside each release so you can verify the installer you downloaded.
 
-It is an ordinary Windows installer that puts an Electron app in your user profile: no admin rights required, no bundled toolbars, no ads, no background service left running after you close it, and anonymous usage statistics you can switch off in Settings. Always download from [runetranslate.com/download](https://runetranslate.com/download) and nowhere else.
+It is an ordinary Windows installer that puts the app in your user profile: no admin rights required, no bundled toolbars, no ads, no background service left running after you close it, and anonymous usage statistics you can switch off in Settings. Always download from [runetranslate.com/download](https://runetranslate.com/download) and nowhere else.
 
 ### How do I report a bug?
 

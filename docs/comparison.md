@@ -56,7 +56,7 @@ An overlay ignores the game entirely: it captures part of your display, runs opt
 
 | | Approach | Engine coverage | Result | Platform | Licence |
 |---|---|---|---|---|---|
-| **RuneTranslate** | File patcher | 18 engines and formats | A playable translated build you keep | Windows 10 / 11 | Proprietary (free tier, paid plans) |
+| **RuneTranslate** | File patcher | 18 engines and formats | A playable translated build you keep | Windows 10 / 11, Linux (AppImage) | Proprietary (free tier, paid plans) |
 | **Translator++** | File patcher | Narrower built-in set, plus a custom-parser system and RPG Maker 2000/2003 | A playable translated build | Windows 7 SP1+ | GPL-3.0-or-later |
 | **MTool** | Runtime hook | RPG Maker focus | A live session | Windows 7+, Android 11+ | Proprietary |
 | **Sugoi Toolkit** | Offline MT engine + hook | Varies | Mostly a live session | Windows 10+ | Mixed (NTT model licence; Sugoi Hook GPL-3.0) |

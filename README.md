@@ -53,7 +53,7 @@ RuneTranslate is a file patcher — an MTL tool of the kind fan-translation proj
 - **Runs on your PC.** Translation requests go straight from your machine to the provider you picked, and API keys are encrypted locally and never leave. The only things that reach RuneTranslate's servers are the ones that have to — sign-in, updates, and the cloud features you opt into (translation memory, collaborative projects, and the Image Studio's text detection)
 - **Every engine, every provider and the whole editor are free.** Paid plans buy speed and convenience, not access
 
-> **Windows 10 / 11 (x64)** — and it runs well on Linux and the Steam Deck through Wine or Proton. Not affiliated with any engine vendor. Intended for personal and fan-translation use — respect the licence of every game you touch.
+> **Windows 10 / 11 (x64), and Linux including the Steam Deck (a native AppImage).** Not affiliated with any engine vendor. Intended for personal and fan-translation use; respect the licence of every game you touch.
 
 <div align="center">
 
