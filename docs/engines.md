@@ -265,7 +265,7 @@ The classic doujin visual-novel engine and its open-source descendant, both of w
 
 **Status: Best-effort** — [engine page](https://runetranslate.com/engines/yu-ris) · [walkthrough](https://runetranslate.com/blog/how-to-translate-yu-ris-games)
 
-raiL-soft's engine, handled in pure TypeScript with no external tool.
+raiL-soft's engine, handled in pure Rust with no external tool.
 
 **Detected by** a `.ypf` package in the root or `pac/`, or a loose `ysbin/` folder of YSTB `.ybn` scripts.
 
@@ -281,7 +281,7 @@ raiL-soft's engine, handled in pure TypeScript with no external tool.
 
 **Status: Full** — [engine page](https://runetranslate.com/engines/alicesoft) · [walkthrough](https://runetranslate.com/blog/how-to-translate-alicesoft-games)
 
-The Rance and Evenicle era of AliceSoft's in-house engine, handled in pure TypeScript.
+The Rance and Evenicle era of AliceSoft's in-house engine, handled in pure Rust.
 
 **Detected by** `.ald` / `.afa` archives and a `System39.ain` (System 3.x) or per-game `.ain` (System 4), including the compressed and encrypted container variants.
 
