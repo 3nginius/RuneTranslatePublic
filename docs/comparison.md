@@ -124,7 +124,7 @@ The cost is that every line goes through recognition first, so stylised fonts, v
 
 **Eighteen engines and formats in one app.** RPG Maker MV/MZ *and* the Ruby XP/VX/Ace generation, Ren'Py, Kirikiri/KAG, Wolf RPG 2.x and 3.x, TyranoBuilder, Electron and Cocos Creator shells, Unity on both Mono and IL2CPP, Unreal 4/5, Godot, Bakin, SRPG Studio, NScripter/ONScripter, Artemis, YU-RIS, AliceSoft System, LiveMaker, GameMaker and gettext catalogs. Most tools cover one engine family well; this covers the shelf. → **[the full list](engines.md)**
 
-**Ten translation providers, mixed in one run.** DeepL, OpenAI, Anthropic Claude, DeepSeek, an OpenAI-compatible endpoint, free Google, two free DeepL routes, on-device Gemini Nano, and your own local model. Provider routing can send menu strings to a free engine and dialogue to a premium one in the same run.
+**Eleven translation providers, mixed in one run.** RuneTranslate's own RuneLingua, DeepL, OpenAI, Anthropic Claude, DeepSeek, an OpenAI-compatible endpoint, free Google, two free DeepL routes, on-device Gemini Nano, and your own local model. Provider routing can send menu strings to a free engine and dialogue to a premium one in the same run.
 
 **An editor, not just a converter.** Regex filters, a saved rule library, a glossary that locks character names on every provider, an AI refiner that re-reads lines in context, a suspicious-translation scanner, and translation memory so you never pay to translate the same line twice.
 
@@ -134,7 +134,7 @@ The cost is that every line goes through recognition first, so stylised fonts, v
 
 **35 languages, in both directions.** Not just Japanese to English — and regional variants are separate, correct choices rather than a coin flip between European and Brazilian Portuguese.
 
-**And it is genuinely free to use.** Every engine, every provider, every language, the whole editor, the save editor, Cheat Mode and the AI refiner are unlocked without paying. Translation memory, the glossary and provider routing come with Supporter, and the paid plans buy speed and convenience.
+**And it is genuinely free to use.** Every engine, every language, the whole editor, the save editor, Cheat Mode and the AI refiner are unlocked without paying, and so is every provider except RuneTranslate's own RuneLingua. RuneLingua, translation memory, the glossary and provider routing come with Supporter ($3.99 a month), and the paid plans buy speed and convenience.
 
 ---
 

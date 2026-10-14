@@ -2,14 +2,14 @@
 
 **[← Back to the README](../README.md)** · **[Download](https://runetranslate.com/download)** · **[Pricing on Patreon](https://www.patreon.com/cw/runetranslate/membership)**
 
-The short version of RuneTranslate's pricing: **free is a speed lane, not a feature paywall.** Every game engine, every translation provider, every target language, the whole editor, the AI refiner, the save editor and the core of Cheat Mode are unlocked without paying anything. Paid plans buy throughput and convenience.
+The short version of RuneTranslate's pricing: **free is a speed lane, not a feature paywall.** Every game engine, every target language, every translation provider except RuneTranslate's own RuneLingua, the whole editor, the AI refiner, the save editor and the core of Cheat Mode are unlocked without paying anything. Paid plans buy throughput and convenience.
 
 This page lists everything, with the minimum tier next to it.
 
 - **Free** — signed in with Patreon, no pledge
-- **Supporter** — $3 / month
-- **Pro** — $5 / month, everything in Supporter plus the Pro rows
-- **Developer** — [email us](mailto:runetranslate@gmail.com), everything in Pro plus the Developer rows
+- **Supporter**: $3.99 / month
+- **Pro**: $5.99 / month, everything in Supporter plus the Pro rows
+- **Ultimate**: $9.99 / month, everything in Pro plus the Ultimate rows
 
 ---
 
@@ -31,7 +31,9 @@ This page lists everything, with the minimum tier next to it.
 | Feature | Tier | What it is |
 |---|---|---|
 | **All 18 engines and formats** | Free | No engine is paid-only. [Full list](engines.md) |
-| **All 10 translation providers** | Free | No provider is paid-only either. Five need no API key at all — four free cloud routes plus a local model on your own PC |
+| **10 translation providers** | Free | Every provider except RuneLingua works on the free tier. Five need no API key at all: four free cloud routes plus a local model on your own PC |
+| **RuneLingua** | Supporter | RuneTranslate's own translation engine, on our GPU: no API key, no account anywhere else, 21 languages. Metered by a monthly character allowance (Supporter 1.5M, Pro 2.5M, Ultimate 6M) shown next to the provider picker, with a preview of what a large run will use before it starts. Lines answered from translation memory and excluded lines cost nothing |
+| **Batch API** | Free | With your own Anthropic or OpenAI key, send the pending lines of the files you pick through the provider's Batch API at about half the normal price. Results come back within 24 hours and fill in on their own; lines you edit in the meantime are never overwritten |
 | **35 source and target languages** | Free | Any of the 35 can be the source; Japanese is only the default |
 | **Select files to translate** | Free | Tick exactly which of the game's files to include, with a per-file string count, so a test run costs a few hundred lines instead of the whole game |
 | **Cost estimate before a run** | Free | On OpenAI, Anthropic or DeepSeek runs over 100 lines, expected tokens and USD are shown before anything is sent |
@@ -49,14 +51,22 @@ This page lists everything, with the minimum tier next to it.
 | Feature | Tier | What it is |
 |---|---|---|
 | **The line table** | Free | Every extracted line, grouped by source file, filtered by status (pending / translated / edited / failed / excluded), edited inline with autosave. Stays responsive at tens of thousands of lines |
+| **Search** | Free | The search box matches the source, the translation and the context line under each source, with match case, whole word and exact match |
 | **Find and replace** | Free | Ctrl+F / Ctrl+H across the source column, the translation column or a single file, with case-sensitive and full-regex modes, reporting exactly how many lines changed |
-| **Bulk actions** | Free | Right-click a row, a whole file or a drag-selected block |
+| **Bulk actions** | Free | Right-click a row, a whole file, a folder or a selection; Shift+click selects every line between two |
+| **Folder tree** | Free | The file list shows the game's folders as a tree, each with how much of it is translated. Click a folder to see every line inside it, or right-click it to translate, reset, tag or select all of it |
+| **Color tags** | Free | Needs review, Approved, Question and Problem to start with, or your own. Alt+1 to Alt+9 tags a line, a filter shows only tagged lines, and tags never change what is translated or exported. In a shared project your tags are your own |
+| **Speaker column** | Free | Who says each line, for Ren'Py and RPG Maker MZ, so gender and formal or informal address stay consistent. Shown in the editor only and never sent to the AI |
+| **RuneSight** | Free | RuneTranslate's own AI, running on your PC. It reads every extracted line and sets aside file paths, script commands, control codes and internal names before they waste your budget or break the game. Set-aside lines stay visible as red rows, and one click translates any of them anyway |
+| **Exclude and unlock by hand** | Free | Exclude a line so it keeps its original text in the game, or unlock an edited line so Re-translate all can change it again without losing your text |
 | **Regex exclusion filters** | Free | Keep asset paths, variable keys and engine plumbing out of a run. Excluded lines become red opt-in rows — nothing is deleted, and you can force-translate one when the filter was wrong. [Guide](https://runetranslate.com/blog/exclude-lines-with-regex-filters) |
 | **Regex rule library** | Free | Star a pattern to keep it. Saved rules live in an account-level library you can search and tag by engine, so you never retype one. Unlimited and local on every tier |
 | **Rule library cloud sync** | Supporter | The same library on every PC you sign in on, plus a web panel |
 | **Re-scan source** | Free | When a game updates, re-scan: new lines merge in, your translations stay, and your exclusion filters are re-applied to the new lines automatically |
 | **Extraction report** | Free | After a scan, exactly which files were found but not used, and why — so missing dialogue is a question with an answer |
 | **Reset to source** | Free | Any line reverts to the text it was extracted from, which is stored in the project at creation time. Reset then export gives you the original game text back |
+| **Guided tours** | Free | A short tour of the Projects page, and one of the editor after you create a project that points at real lines from your game |
+| **Export folders** | Free | Export and Export patch each remember their own folder, shown in Settings > App |
 | **Export progress and summary** | Free | A live overlay while the build is written, then a panel with the count and a button to the folder — plus guard rails that warn before exporting into the game's own folder or over your saves |
 
 ---
@@ -83,11 +93,11 @@ The **Image Studio** is for the Japanese painted into a game's artwork — title
 | **Open and read** | Free | Browse the game's artwork, pan and zoom, read existing work. This is the one place free is *read-only* rather than throttled — every edit is refused |
 | **Detect and recognize** | Supporter | One click finds every text area on a page and reads it, grouping the lines of a balloon into one block. Anything it misses you can box by hand, and any single box can be re-read on its own |
 | **Translate the boxes** | Supporter | Recognized text goes through the same provider as your dialogue and lands in the editor, where you can rewrite it to fit the space it has |
-| **Clean** | Supporter | Paint over the original lettering and the art underneath is rebuilt — a real background, not a coloured patch |
-| **Typeset** | Supporter | Font, size with auto-fit, weight, alignment, outline, shadow, colour, per box, vertical Japanese included |
+| **Clean** | Supporter | Paint over the original lettering and the art underneath is rebuilt — a real background, not a coloured patch. Or erase it to transparency, for a button or logo on a clear background; Auto picks for you. Masks come from a brush, a magic wand, your text boxes or the whole picture |
+| **Typeset** | Supporter | Font, size with auto-fit, weight, alignment, outline, shadow, colour, per box, vertical Japanese included. Set many boxes at once, and add your own TTF or OTF fonts |
 | **Bake** | Supporter | Writes the translated image under its original filename, in the game's own format, so the game just loads it. On folder-based engines the untouched original is kept beside it as `bk_<name>`; in an archive there is no loose original to keep, and your source game is untouched either way |
 | **Round-trip to Photoshop** | Supporter | Export a page (or every page in the current view) as PNG — plain artwork or the finished look — redraw it anywhere, and import it back as that page's base. A Kirikiri `.tlg` goes back as a `.tlg` |
-| **Higher daily quota** | Pro | Detection and background rebuilding run on RuneTranslate's own OCR service and are metered per day. Pro raises the allowance well above Supporter's; Developer raises it again |
+| **Higher daily quota** | Pro / Ultimate | Detection and background rebuilding run on RuneTranslate's own OCR service and are metered per day: about 50 pages a day on Supporter, 270 on Pro and 540 on Ultimate |
 
 **Engines with image support:** RPG Maker MV/MZ (encrypted `.rpgmvp` and `.png_` included — the cipher is detected, not assumed), Kirikiri XP3 with TLG, NScripter `.nsa` / `.sar`, Ren'Py loose art and `.rpa`, Electron `app.asar`, and any engine that keeps its images in ordinary folders.
 
@@ -102,9 +112,10 @@ The **Image Studio** is for the Japanese painted into a game's artwork — title
 | **Advanced cheats** | Supporter | The Variables and Switches tabs (list, search and set every game variable or switch live), give-all-items, max stats and level, instant battle win, and Ren'Py's live store-variable editor |
 | **Game diagnosis** | Free | When a translated build will not start, this checks the game folder, what the export delivered, fonts and encoding, coverage, the game's own crash log, and the individual lines whose shape has broken builds before — then offers a **safe-mode build** that reverts only the risky ones |
 | **Guided hunt** | Supporter | When safe mode works but you do not know which line broke the game, the hunt narrows it down: it builds a trial version, you say whether it ran, and the next trial follows from your answer — usually ten to fourteen rounds to name the culprit |
-| **Patch export / import** | Free | Share your work as a compact `.rtpatch` another user applies in one click, or as an `.xlsx` for Excel, Google Sheets or a human translator. **No game files are ever included.** Free accounts get one export and one import every three days; paid is unlimited. [Guide](https://runetranslate.com/blog/how-to-make-a-translation-patch) |
+| **Patch export / import** | Free | Share your work as a compact `.rtpatch` another user applies in one click, as an `.xlsx` for Excel, Google Sheets or a human translator, or as CSV or JSON for your own scripts; import reads all four. **No game files are ever included.** Free accounts get one export and one import every three days; paid is unlimited. [Guide](https://runetranslate.com/blog/how-to-make-a-translation-patch) |
 | **AI Connections (MCP)** | Free / Supporter | Connect Claude Desktop to RuneTranslate and talk to it about your project — it can research a game with its own web search and write results back. Browsing and searching are free; the write and run tools are Supporter. Off until you turn it on, and the link is local and token-guarded. [Guide](https://runetranslate.com/blog/ai-connections-claude-desktop) |
-| **Developer interchange** | Developer | Import CSV, JSON, PO (gettext) or XLIFF, pick a source language and as many targets as you like, and get one auto-translated project per language — exported back in the same format with your ids and keys intact. Works for any engine, including unsupported ones. [Guide](https://runetranslate.com/blog/translate-your-own-game-strings) |
+| **Engine options** | Free | Settings > Engines: dialogue wrap for RPG Maker and Wolf RPG, menu text auto-fit, your own font for Unity games, and Arabic drawn right to left with joined letters in RPG Maker MV and Unity exports |
+| **Developer interchange** | Ultimate | Import CSV, JSON, PO (gettext) or XLIFF, pick a source language and as many targets as you like, and get one auto-translated project per language — exported back in the same format with your ids and keys intact. Works for any engine, including unsupported ones. [Guide](https://runetranslate.com/blog/translate-your-own-game-strings) |
 
 ---
 
@@ -114,7 +125,7 @@ The **Image Studio** is for the Japanese painted into a game's artwork — title
 |---|---|---|
 | **Join a collaborative project** | Free | Anyone can join someone else's shared project and translate in it |
 | **Host a collaborative project** | Supporter | Share an invite code and translate a game together like a shared document — everyone on the same line list, edits visible within seconds, live presence showing who is editing which line, and a *translated by* credit on every line. Any member with their own copy of the game can export the build. [Guide](https://runetranslate.com/blog/collaborative-translation) |
-| **Overnight queue** | Supporter | Line up several games, press start, walk away — optionally refining each one as it finishes. A failure is noted and the queue moves on; your PC is kept awake and you get a notification at the end. Supporter queues 10 games, Pro 30, Developer 50 |
+| **Overnight queue** | Supporter | Line up several games, press start, walk away — optionally refining each one as it finishes. A failure is noted and the queue moves on; your PC is kept awake and you get a notification at the end. Supporter queues 10 games, Pro 30, Ultimate 50 |
 
 ---
 
@@ -122,27 +133,33 @@ The **Image Studio** is for the Japanese painted into a game's artwork — title
 
 | Feature | Tier | What it is |
 |---|---|---|
-| **18-language interface** | Free | The whole app, including the in-app help for every settings tab, in 18 languages — with right-to-left layout for Arabic |
+| **19-language interface** | Free | The whole app, including the in-app help for every settings tab, in 19 languages, Traditional Chinese included, with a right-to-left layout for Arabic |
+| **Windows and Linux** | Free | Windows 10 / 11, and a native Linux AppImage for desktop Linux and the Steam Deck with the same engines, editor and export. On Linux, games start through Proton or Wine |
+| **App font and size** | Free | Pick the app's own font and scale it from 80% to 140%. It changes RuneTranslate only, never a game |
+| **Game cache** | Free | The files RuneTranslate unpacks from games can live on a drive you choose (Settings > App > Game cache), and the Projects page warns when they pass 5 GB, with a button to clear them |
 | **Auto-update** | Free | New versions download in the background and prompt you to restart, with a What's New panel |
 | **Early access to new builds** | Supporter | When early access is on, paid supporters get each release first and everyone else after a set delay, with a countdown shown in the app |
 | **Support tickets** | Free | Report a bug or ask for a feature from inside the app and get a threaded reply in the same place. Attach screenshots, spreadsheets or a `.rtpatch` — paste a screenshot straight in with Ctrl+V |
 | **Moved-folder recovery** | Free | Rename or move a game folder and the project follows it, instead of failing an export with a cryptic message |
 | **Discord Rich Presence** | Free | Show RuneTranslate in your Discord status. Only the engine family is ever shown — never the game or project name. Off unless you turn it on |
 | **Themes** | Free / Supporter / Pro | 18 colour themes, four of them animated procedural backdrops. Light is free, most come with Supporter, three animated scene themes are Pro, and three more are bought with RT Coins |
-| **RT Coins** | Supporter | Every month subscribed earns coins, and an unbroken streak earns more. Spend them on a gift month of Supporter or Pro for someone else, or on cosmetics |
+| **RT Coins** | Supporter | Every month subscribed earns coins (Supporter 100, Pro 200, Ultimate 350), and an unbroken streak earns more. Spend them on a gift month of Supporter or Pro for someone else, or on cosmetics |
 | **Website account panel** | Free | Manage your tier and renewal, RT Coins and gift codes in a browser. The translation-memory and regex-rule-library panels come with Supporter, like the cloud sync they belong to |
 
 ---
 
 ## Limits at a glance
 
-| | Free | Supporter | Pro | Developer |
+| | Free | Supporter | Pro | Ultimate |
 |---|---|---|---|---|
+| Price | $0 | $3.99 / month | $5.99 / month | $9.99 / month |
+| RuneLingua characters a month | — | 1,500,000 | 2,500,000 | 6,000,000 |
 | Projects at once | 1 | 10 | 30 | 100 |
 | Games in the overnight queue | — | 10 | 30 | 50 |
 | Translation speed | throttled (~2× slower on AI providers) | full | full | full |
-| Image Studio | read-only | editor | editor, larger quota | editor, largest quota |
+| Image Studio | read-only | about 50 pages / day | about 270 pages / day | about 540 pages / day |
 | Patch export / import | 1 + 1 per 3 days | unlimited | unlimited | unlimited |
+| RT Coins a month (more with a streak) | — | 100 | 200 | 350 |
 
 Collaborative projects you host or join do not count against the project limit. Finishing a game, exporting it and deleting the project frees the slot again — and the exported build and the translations inside it are yours permanently, whatever happens to your subscription.
 

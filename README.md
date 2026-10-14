@@ -6,10 +6,10 @@
 
 ### Translate Japanese games into English — and 34 other languages
 
-**A Windows desktop app that reads a game's own files, translates every line, and exports a playable build in your language.**
+**A desktop app for Windows and Linux that reads a game's own files, translates every line, and exports a playable build in your language.**
 RPG Maker, Ren'Py, Kirikiri, Wolf RPG, Unity, Unreal, Godot, GameMaker, NScripter and eight more engines, plus gettext catalogs. No overlay. No hook. No server left running.
 
-[![Download for Windows](https://img.shields.io/badge/Download-Windows%2010%20%2F%2011-EC4899?style=for-the-badge&logo=windows&logoColor=white)](https://runetranslate.com/download)
+[![Download for Windows](https://img.shields.io/badge/Download-Windows%2010%20%2F%2011%20%7C%20Linux-EC4899?style=for-the-badge&logo=windows&logoColor=white)](https://runetranslate.com/download)
 [![RuneTranslate website](https://img.shields.io/badge/Website-runetranslate.com-7C9EFF?style=for-the-badge&logo=firefoxbrowser&logoColor=white)](https://runetranslate.com)
 [![Discord community](https://img.shields.io/badge/Discord-Join-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/ZtsfZu7YsW)
 [![Support on Patreon](https://img.shields.io/badge/Patreon-Support-FF424D?style=for-the-badge&logo=patreon&logoColor=white)](https://www.patreon.com/cw/runetranslate/membership)
@@ -48,10 +48,10 @@ There are only three ways to get Japanese out of a game: **patch its files**, **
 RuneTranslate is a file patcher — an MTL tool of the kind fan-translation projects use — and a thorough one. Point it at a game folder and it identifies the engine, opens the archives, pulls every translatable string (dialogue, choices, item names, skill descriptions, menus, system terms, plugin text) into an editable project, translates them through the provider you pick, and writes a **playable build** into an output folder of your choosing. Your original game is never modified.
 
 - **18 engines and formats**, one workflow — see the [full table](#supported-game-engines-and-file-formats)
-- **10 translation providers** — DeepL, OpenAI, Claude, DeepSeek, Google, a local model, and more. **Five need no API key at all**
+- **11 translation providers**: RuneLingua (RuneTranslate's own engine), DeepL, OpenAI, Claude, DeepSeek, Google, a local model, and more. **Six need no API key at all**
 - **35 languages**, source and target — Japanese is the default source, not a hard-coded one
-- **Runs on your PC.** Translation requests go straight from your machine to the provider you picked, and API keys are encrypted locally and never leave. The only things that reach RuneTranslate's servers are the ones that have to — sign-in, updates, and the cloud features you opt into (translation memory, collaborative projects, and the Image Studio's text detection)
-- **Every engine, every provider and the whole editor are free.** Paid plans buy speed and convenience, not access
+- **Runs on your PC.** Translation requests go straight from your machine to the provider you picked, and API keys are encrypted locally and never leave. The only things that reach RuneTranslate's servers are the ones that have to — sign-in, updates, and the cloud features you opt into (translation memory, collaborative projects, the Image Studio's text detection, and the lines you send to RuneLingua)
+- **Every engine, every language and the whole editor are free**, and so is every provider except RuneLingua. Paid plans buy speed, RuneLingua and convenience, not access to engines
 
 > **Windows 10 / 11 (x64), and Linux including the Steam Deck (a native AppImage).** Not affiliated with any engine vendor. Intended for personal and fan-translation use; respect the licence of every game you touch.
 
@@ -67,7 +67,7 @@ RuneTranslate is a file patcher — an MTL tool of the kind fan-translation proj
 
 ## Download and install
 
-**[⬇ Download the Windows installer at runetranslate.com/download](https://runetranslate.com/download)**
+**[⬇ Download the Windows installer or the Linux AppImage at runetranslate.com/download](https://runetranslate.com/download)**
 
 Run it, sign in once with Patreon, and you are ready. New versions download in the background and prompt you to restart. There is nothing to compile and no runtime to install first.
 
@@ -81,7 +81,7 @@ The build is not code-signed, so Windows SmartScreen shows an "unrecognised app"
 
 **1. Open the game folder.** *New project* → point it at the game directory. The engine is detected automatically and every translatable string is pulled into a project. A report tells you which files were read and which were skipped, so missing dialogue is never a mystery.
 
-**2. Pick a language and a provider.** Choose your target language and a translation engine — free Google, free DeepL, DeepL with your key, OpenAI, Claude, DeepSeek, an OpenAI-compatible endpoint, on-device Gemini Nano, or your own local model. You can also tick exactly which of the game's files to include, so a test run costs a few hundred lines instead of the whole game.
+**2. Pick a language and a provider.** Choose your target language and a translation engine — RuneLingua on a paid plan, free Google, free DeepL, DeepL with your key, OpenAI, Claude, DeepSeek, an OpenAI-compatible endpoint, on-device Gemini Nano, or your own local model. You can also tick exactly which of the game's files to include, so a test run costs a few hundred lines instead of the whole game.
 
 **3. Translate, then read it back.** Watch the progress bar and live ETA. Afterwards, work through the editor: find and replace, regex filters, a glossary to lock character names, and an optional AI refiner that re-reads each line in context and fixes stiff first-draft phrasing. On big OpenAI, Claude or DeepSeek runs you get a token and USD estimate *before* anything is sent.
 
@@ -129,10 +129,11 @@ The build is not code-signed, so Windows SmartScreen shows an "unrecognised app"
 
 ## Translation providers
 
-Ten engines, mixed freely. **Five need no API key and no account** — four free cloud routes, plus a local model running entirely on your own hardware.
+Eleven engines, mixed freely. **Six need no API key**: RuneTranslate's own RuneLingua, four free cloud routes, and a local model running entirely on your own hardware.
 
 | Provider | Key needed | Cost | Good for |
 |---|---|---|---|
+| **RuneLingua** (RuneTranslate's own) | No | Included with Supporter, Pro and Ultimate: 1.5M, 2.5M or 6M characters a month | Whole games with no key, no account anywhere else and no setup, in 21 languages |
 | **Google Translate** (unofficial) | No | Free | Whole games on a budget. The fastest free route — batched, with automatic rotation when an endpoint pushes back |
 | **DeepL** (unofficial, free) | No | Free | DeepL quality with no account. Deliberately paced, so it suits smaller jobs rather than a 60,000-line RPG |
 | **DeepL Classic / Next-gen** (unofficial, free) | No | Free | The same DeepL quality with no account, over a stateful session — and a choice between DeepL's Classic and Next-gen models |
@@ -144,9 +145,11 @@ Ten engines, mixed freely. **Five need no API key and no account** — four free
 | **DeepSeek** | Yes | Pay per token | LLM quality at a fraction of the price — often cents for a whole game |
 | **OpenAI-compatible** | Yes | Whatever that service charges | OpenRouter, NanoGPT or any endpoint speaking the OpenAI API, with the model list pulled live |
 
-**No provider is locked behind a plan.** Every tier, including free, can use all ten.
+**RuneLingua is the one provider that comes with a plan.** It runs on RuneTranslate's own GPU, so it is included with Supporter, Pro and Ultimate and metered by a monthly character allowance, shown next to the provider picker. Lines answered from translation memory cost nothing. Every other provider works on every tier, free included.
 
-API keys are stored encrypted with Windows DPAPI on your own machine and are sent **directly** to the provider — never through RuneTranslate's servers.
+**Batch API for Claude and ChatGPT.** With your own Anthropic or OpenAI key, *Translate via Batch API* sends the pending lines of the files you pick to the provider's Batch API, at about half the normal price. Results come back within 24 hours, often sooner, and fill in on their own; you can close the app while you wait, and lines you edit in the meantime are never overwritten. Every plan.
+
+API keys are stored encrypted on your own machine and are sent **directly** to the provider, never through RuneTranslate's servers.
 
 The unofficial free endpoints are exactly that: unofficial, rate-limited, and able to change without notice. The app is built around that — it batches, paces itself, rotates, retries and tells you plainly when a limit is real instead of grinding silently.
 
@@ -165,9 +168,9 @@ The unofficial free endpoints are exactly that: unofficial, rate-limited, and ab
 
 Regional variants are first-class: Chinese Simplified and Traditional, and European and Brazilian Portuguese, are four separate choices pinned to the right code on every provider — so "Portuguese" never quietly means one thing on DeepL and another on Google.
 
-The **app's own interface** is translated into 18 languages, Arabic included with a full right-to-left layout.
+The **app's own interface** is translated into 19 languages, Traditional Chinese and Arabic included, with a full right-to-left layout for Arabic.
 
-Two engine-level extras worth knowing about: RuneTranslate bundles fonts for Ren'Py targets whose glyphs a Japanese game never had, and it can render **Thai** inside NScripter, Artemis and Wolf RPG games whose engines only ever understood the Japanese character set.
+Two engine-level extras worth knowing about: RuneTranslate bundles fonts for Ren'Py targets whose glyphs a Japanese game never had, and it can render **Thai** inside NScripter, Artemis and Wolf RPG games whose engines only ever understood the Japanese character set. **Arabic** exports of RPG Maker MV and Unity games are drawn right to left with the letters joined, where the engine alone would draw them reversed and in pieces.
 
 ---
 
@@ -176,7 +179,11 @@ Two engine-level extras worth knowing about: RuneTranslate bundles fonts for Ren
 The translation is the easy half. The editor is where a machine draft becomes something worth playing.
 
 - **One fast table** for every extracted line, grouped by the file it came from, filtered by status, edited inline with autosave. Tens of thousands of lines stay responsive.
-- **Find & replace** across source, translation or a single file, with case-sensitive and full-regex modes.
+- **Folders and color tags.** The file list shows the game's folders as a tree, each with how much of it is translated; right-click a folder to translate, reset or tag everything inside. Tags (Needs review, Approved, Question, Problem, or your own) mark lines for you and never change the export.
+- **A speaker column** for Ren'Py and RPG Maker MZ, so gender and formal or informal address stay consistent. It is shown in the editor only and never sent to the AI.
+- **Search and find & replace** across source, translation, the context line or a single file, with match case, whole word, exact match and full-regex modes. Shift+click selects a range of lines.
+- **RuneSight**, RuneTranslate's own AI, runs on your PC and reads every extracted line. What a player never sees (file paths, script commands, control codes, internal names) is set aside before it can waste your budget or break the game. Set-aside lines stay visible as red rows, and one click translates any of them anyway.
+- **Exclude or unlock by hand.** Exclude a line so it keeps its original text in the game, or unlock an edited line so a re-translate can change it again without losing your text.
 - **Regex exclusion filters** keep asset paths, variable keys and engine plumbing out of your run. Excluded lines become red opt-in rows — nothing is silently deleted, and you can force-translate one whenever the filter was wrong.
 - **A regex rule library** at account level. Star a pattern once, reuse it in the next project instead of retyping it. Free and unlimited locally on every tier.
 - **Glossary** — force `勇者 → Hero` into every batch on every provider, so a name reads the same on line 1 and line 12,000. **Auto-glossary** proposes entries by scanning the project for recurring names and terms. *Supporter+.*
@@ -198,11 +205,11 @@ The translation is the easy half. The editor is where a machine draft becomes so
 
 Title screens, *New Game* buttons, HUD labels, a CG stamp: words that are pixels rather than strings, which no text extractor can reach.
 
-Detect every text area on an image and read it in one click. Paint over the original lettering and the art underneath is **rebuilt**, not covered with a coloured patch. Typeset your translation with real fonts — size and auto-fit, weight, alignment, outline, shadow, colour, vertical Japanese — then bake it back under the original filename so the game simply loads it — and on folder-based engines the untouched original is kept beside it. You can also export a page to Photoshop, redraw it there and import it straight back; it returns in the game's own format, so a Kirikiri `.tlg` goes back as a `.tlg`.
+Detect every text area on an image and read it in one click. Paint over the original lettering and the art underneath is **rebuilt**, not covered with a coloured patch. Typeset your translation with real fonts — size and auto-fit, weight, alignment, outline, shadow, colour, vertical Japanese — then bake it back under the original filename so the game simply loads it — and on folder-based engines the untouched original is kept beside it. Clean can also erase lettering to transparency, for a button or logo on a clear background, and masks come from a brush, a magic wand, your text boxes or the whole picture. Typeset several boxes at once, in your own TTF or OTF fonts if you like. You can also export a page to Photoshop, redraw it there and import it straight back; it returns in the game's own format, so a Kirikiri `.tlg` goes back as a `.tlg`.
 
 Works on RPG Maker MV/MZ (encrypted `.rpgmvp` included), Kirikiri XP3/TLG, NScripter archives, Ren'Py loose art and `.rpa`, Electron `app.asar`, and any engine that keeps its images in ordinary folders.
 
-*Free opens the Studio read-only — browse, zoom and read. Editing and baking come with Supporter.* → **[How image translation works](https://runetranslate.com/image-translation)**
+*Free opens the Studio read-only: browse, zoom and read. Editing and baking come with Supporter, with text detection for about 50 pages a day (Pro about 270, Ultimate about 540).* → **[How image translation works](https://runetranslate.com/image-translation)**
 
 ### 💾 Save editor — free
 
@@ -218,11 +225,11 @@ When a translated build will not start, the diagnosis page tells you why in plai
 
 ### 📦 Share your work — free
 
-Export your translations as a compact `.rtpatch` another user applies in one click, or as an `.xlsx` you can edit in Excel or Google Sheets and hand to a translator. **No game files are ever included** — only your text. *(Free accounts get one export and one import every three days; paid plans are unlimited.)* → **[How to make a translation patch](https://runetranslate.com/blog/how-to-make-a-translation-patch)**
+Export your translations as a compact `.rtpatch` another user applies in one click, as an `.xlsx` you can edit in Excel or Google Sheets and hand to a translator, or as CSV or JSON for your own scripts. Import reads all four. **No game files are ever included** — only your text. *(Free accounts get one export and one import every three days; paid plans are unlimited.)* → **[How to make a translation patch](https://runetranslate.com/blog/how-to-make-a-translation-patch)**
 
 ### 🧑‍💻 Developer interchange — bring your own strings
 
-Making your own game? Import CSV, JSON, PO (gettext) or XLIFF, choose a source language and as many targets as you like, and get one auto-translated project per language — then export each back in the same format with your ids and keys intact, ready to drop into the build. Works for any engine, including ones RuneTranslate has never heard of. *Developer plan.* → **[Translate your own game strings](https://runetranslate.com/blog/translate-your-own-game-strings)**
+Making your own game? Import CSV, JSON, PO (gettext) or XLIFF, choose a source language and as many targets as you like, and get one auto-translated project per language — then export each back in the same format with your ids and keys intact, ready to drop into the build. Works for any engine, including ones RuneTranslate has never heard of. *Ultimate plan.* → **[Translate your own game strings](https://runetranslate.com/blog/translate-your-own-game-strings)**
 
 ### 🤖 AI Connections — Claude Desktop, inside your project
 
@@ -234,7 +241,7 @@ Connect Claude Desktop to RuneTranslate over the open MCP standard and just talk
 
 **🤝 Live collaborative projects.** Translate a game with your team like a shared document. The host shares an invite code, everyone works the same line list, and edits appear for the others within seconds. Live presence shows who is online, the line each person is editing and the rows they have selected; every line carries a *translated by* credit. Any member with their own copy of the game can export the finished build. *Hosting needs Supporter — **joining and translating is free for everyone**.* → **[Collaborative translation](https://runetranslate.com/blog/collaborative-translation)**
 
-**🌙 Overnight queue.** Line up several games, press start, walk away. RuneTranslate works through them back to back, optionally running the AI refiner on each as it finishes. A failure is noted and the queue moves on, your PC is kept awake for the batch, and a notification tells you when it is done. *Supporter.*
+**🌙 Overnight queue.** Line up several games, press start, walk away. RuneTranslate works through them back to back, optionally running the AI refiner on each as it finishes. A failure is noted and the queue moves on, your PC is kept awake for the batch, and a notification tells you when it is done. *Supporter queues 10 games, Pro 30, Ultimate 50.*
 
 **🔀 Bring your own proxies.** Google and free DeepL limit by IP address, not by account, so one address caps a whole-game run. Paste your own HTTP/HTTPS or SOCKS proxies, test them for latency and real exit IP, and requests rotate automatically — a proxy that gets limited cools down and steps aside. RuneTranslate never supplies proxies; yours stay encrypted on your PC, and only translation traffic is routed through them. *Pro.* → **[Translate with your own proxies](https://runetranslate.com/blog/translate-with-your-own-proxies)**
 
@@ -242,13 +249,14 @@ Connect Claude Desktop to RuneTranslate over the open MCP standard and just talk
 
 ## Pricing
 
-**Free is a speed lane, not a feature paywall.** Every engine, every provider, every language and the whole editor are unlocked without paying — plus the save editor, Cheat Mode's core cheats and the AI refiner.
+**Free is a speed lane, not a feature paywall.** Every engine, every language, the whole editor and every provider except RuneLingua are unlocked without paying, plus the save editor, Cheat Mode's core cheats and the AI refiner.
 
-| | **Free** | **Supporter** | **Pro** | **Developer** |
+| | **Free** | **Supporter** | **Pro** | **Ultimate** |
 |---|---|---|---|---|
-| | $0 | $3 / month | $5 / month | [contact us](mailto:runetranslate@gmail.com) |
+| | $0 | $3.99 / month | $5.99 / month | $9.99 / month |
 | All 18 engines & 35 languages | ✅ | ✅ | ✅ | ✅ |
-| All 10 providers | ✅ | ✅ | ✅ | ✅ |
+| 10 providers: free routes, local models and your own keys | ✅ | ✅ | ✅ | ✅ |
+| RuneLingua, RuneTranslate's own engine | — | 1.5M characters / month | 2.5M characters / month | 6M characters / month |
 | Full editor, AI refiner, save editor, Cheat Mode core | ✅ | ✅ | ✅ | ✅ |
 | Join a collaborative project | ✅ | ✅ | ✅ | ✅ |
 | Translation speed | throttled | full | full | full |
@@ -256,10 +264,12 @@ Connect Claude Desktop to RuneTranslate over the open MCP standard and just talk
 | Translation memory, glossary, provider routing | — | ✅ | ✅ | ✅ |
 | Overnight queue | — | 10 games | 30 games | 50 games |
 | Host collaborative projects | — | ✅ | ✅ | ✅ |
-| Image Studio | read-only | editor | editor, larger quota | editor, largest quota |
+| Image Studio | read-only | about 50 pages / day | about 270 pages / day | about 540 pages / day |
+| Patch export / import | 1 + 1 every 3 days | unlimited | unlimited | unlimited |
+| RT Coins a month (more with a streak) | — | 100 | 200 | 350 |
 | Animated scene themes | — | — | ✅ | ✅ |
 | Your own translation proxies | — | — | ✅ | ✅ |
-| Bulk CSV / JSON / PO / XLIFF | — | — | — | ✅ |
+| Developer tab: your own CSV / JSON / PO / XLIFF strings | — | — | — | ✅ |
 
 **What "throttled" actually means:** on the free tier RuneTranslate sends fewer requests in parallel, halves the batch size, and pauses briefly between batches; on an exceptionally heavy day a free account can also be capped on how many runs it starts. Measured, the speed difference works out at **roughly twice the wall-clock time on the AI providers, and less than that on the free scrapers**, whose speed is set by the endpoint rather than by us. The **quality is identical** — same provider, same model, same prompt, same result. A banner above the progress bar explains it while a run is going.
 
@@ -293,7 +303,7 @@ Head to head, in detail: **[vs Translator++](https://runetranslate.com/compare/t
 
 ### Is RuneTranslate a rune translator?
 
-No. Despite the name, RuneTranslate has nothing to do with Norse runes, the Elder Futhark alphabet or Viking inscriptions. It is a Windows desktop app that translates **video games** — it reads a game's own data files, translates the text inside them, and writes back a playable build in your language.
+No. Despite the name, RuneTranslate has nothing to do with Norse runes, the Elder Futhark alphabet or Viking inscriptions. It is a desktop app for Windows and Linux that translates **video games** — it reads a game's own data files, translates the text inside them, and writes back a playable build in your language.
 
 ### Is RuneTranslate safe?
 
@@ -307,7 +317,7 @@ The app itself is closed-source; this repository is documentation, not the build
 
 ### Is RuneTranslate free?
 
-Yes. Every engine, every provider, every language, the full editor, the AI refiner, the save editor and Cheat Mode's core cheats are unlocked with no pledge. There is no paid-only engine and no paid-only language. What paid buys is throughput and convenience: full-speed translation, more projects at once, translation memory, a glossary, provider routing, the overnight queue and collaborative hosting.
+Yes. Every engine, every language, the full editor, the AI refiner, the save editor and Cheat Mode's core cheats are unlocked with no pledge, and so is every provider except RuneTranslate's own RuneLingua. There is no paid-only engine and no paid-only language. What paid buys is throughput and convenience: full-speed translation, RuneLingua, more projects at once, translation memory, a glossary, provider routing, the overnight queue and collaborative hosting.
 
 ### Do I need an account?
 
@@ -315,7 +325,7 @@ Yes — the app signs in with Patreon on first launch and there is no anonymous 
 
 ### Do I need an API key to translate a game?
 
-No. Five providers need no key and no account — free Google Translate, two free DeepL routes, on-device Gemini Nano, and a local model through Ollama or LM Studio, which runs fully offline with no per-token cost. Keys are only for DeepL's official API, OpenAI, Anthropic, DeepSeek or an OpenAI-compatible endpoint, if you want those.
+No. Six providers need no key: RuneTranslate's own RuneLingua on a paid plan, free Google Translate, two free DeepL routes, on-device Gemini Nano, and a local model through Ollama or LM Studio, which runs fully offline with no per-token cost. Keys are only for DeepL's official API, OpenAI, Anthropic, DeepSeek or an OpenAI-compatible endpoint, if you want those.
 
 ### What do I get at the end — a patch, or a copy of the game?
 
@@ -333,7 +343,7 @@ Usually one sitting. A short visual novel of a few thousand lines takes minutes 
 
 Yes — the storefront is irrelevant, only the engine matters. If you bought it on Steam, copy the game folder out of your library first and translate the copy, so Steam's file verification does not fight you.
 
-➡️ **The long-form FAQ: [docs/faq.md](docs/faq.md)** · **[All 69 answers at runetranslate.com/faq](https://runetranslate.com/faq)**
+➡️ **The long-form FAQ: [docs/faq.md](docs/faq.md)** · **[All 70 answers at runetranslate.com/faq](https://runetranslate.com/faq)**
 
 ---
 
@@ -382,7 +392,7 @@ This repository is RuneTranslate's public information hub — the app itself is 
 
 <div align="center">
 
-### [⬇️ Download RuneTranslate for Windows](https://runetranslate.com/download)
+### [⬇️ Download RuneTranslate for Windows and Linux](https://runetranslate.com/download)
 
 <sub>
 <b>Engines:</b>

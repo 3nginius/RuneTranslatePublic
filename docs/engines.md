@@ -47,7 +47,7 @@ The most common engine in Japanese indie games, and the one RuneTranslate knows 
 
 **Detected by** `www/data/` (MV) or `data/` (MZ), plus the packed and protected variants below.
 
-**What comes out:** event dialogue and choices, the database (items, weapons, armour, skills, states, enemies, classes, actors), `System.json` terms and messages, map names, and translatable strings inside plugin parameters. Dialogue is re-wrapped to the message window's width on export, so a longer English line does not run off the box.
+**What comes out:** event dialogue and choices, battle-event dialogue, the database (items, weapons, armour, skills, states, enemies, classes, actors), `System.json` terms and messages, map names, translatable strings inside plugin parameters (a long block becomes one row per line), and dialogue kept in the ExternMessage plugin's CSV. Dialogue is re-wrapped to the message window's width on export, so a longer English line does not run off the box.
 
 **Awkward packaging, handled:**
 
@@ -56,6 +56,8 @@ The most common engine in Japanese indie games, and the one RuneTranslate knows 
 - **Plugin-held scripts** — some games keep their entire character dialogue in a plugin's own scenario format outside `data/*.json`. Those are read too.
 
 **Export:** a full translated copy of the game folder. Double-click and play.
+
+**Arabic:** an MV game exported into Arabic draws its text right to left with the letters joined, in messages, choices, menus and the battle log, through a small plugin and an Arabic font the export adds. MZ handles Arabic itself and is left as it is. On by default, and Settings > Engines turns it off.
 
 **Also for RPG Maker:** the [save editor](https://runetranslate.com/save-editor) opens `.rpgsave` and `.rmmzsave`, and [Cheat Mode](https://runetranslate.com/cheat-mode) injects an in-game cheat menu.
 
@@ -170,8 +172,14 @@ The catch-all for custom Electron shells — including Cocos Creator games — t
 - `StreamingAssets` scripts and, for some in-house VN engines, their custom `StreamingAssets` archives — where the entire script sometimes turns out to live
 - String literals in a Mono `Assembly-CSharp.dll`, gated on how each one is actually used
 - Encrypted Addressable bundles, decrypted where the key can be recovered
+- Naninovel scripts, on old and new Unity versions alike
+- Dialogue and item text a game keeps in its own data files or language packs beside the game data
 
 **Export:** a full translated copy of the game, with assets patched in place.
+
+**Your own font:** Settings > Engines > *Use my own font* draws every Unity export in a TTF or OTF you pick, TextMeshPro text included, with the game's original letters kept behind yours.
+
+**Arabic:** Unity draws text one letter at a time from left to right, so an export into Arabic, or another language written in Arabic script, writes the text with its letters joined and in right-to-left order. In Naninovel games the dialogue box is switched to right to left too, so each line starts on the right. Games that ship their own Arabic support are left alone.
 
 **Out of scope:** strings compiled into an IL2CPP binary. Control identifiers, localization keys, locale codes and engine wiring are recognised and excluded rather than translated — translating those is the classic cause of a Unity game that hangs on a loading screen with no error at all.
 
@@ -189,7 +197,7 @@ The catch-all for custom Electron shells — including Cocos Creator games — t
 
 **Encryption:** AES-encrypted paks are supported, and the key is recovered from the game itself where possible rather than asked for.
 
-**Export:** a small, unencrypted override `_P.pak` that you drop into `Content/Paks`. Unreal mounts `_P` last, so it shadows the base archives — no re-signing, and a 60 GB game is not duplicated to change its menus.
+**Export:** a small, unencrypted override `_P.pak` that you drop into `Content/Paks`. Unreal mounts `_P` last, so it shadows the base archives — no re-signing, and a 60 GB game is not duplicated to change its menus. UE5 games whose text is cooked into their packages get the patched packages as an override container instead, and a game that never loads an added archive gets its translation written where the engine looks first.
 
 **Out of scope, and reported rather than silently skipped:** DataTables and general cooked `.uasset` text. Oodle-compressed loose paks need the bundled retoc sidecar or the game's own `oo2core` library.
 
@@ -201,7 +209,7 @@ The catch-all for custom Electron shells — including Cocos Creator games — t
 
 **Detected by** a `.pck` beside the executable, or a `.pck` embedded inside the `.exe`.
 
-**What comes out:** dialogue and UI text from GDScript, scene files, Godot's own compiled `.translation` resources (patched by value, so the game's keys keep resolving), and Dialogic timelines.
+**What comes out:** dialogue and UI text from GDScript, scene files, Godot's own compiled `.translation` resources (patched by value, so the game's keys keep resolving), Dialogic timelines, and text the game keeps in its own JSON data files. Godot 4's Zstd-compressed translation tables are read and written too.
 
 **Export:** a repacked, runnable build.
 
