@@ -45,14 +45,13 @@ Three things are true of every engine below:
 
 The most common engine in Japanese indie games, and the one RuneTranslate knows best.
 
-**Detected by** `www/data/` (MV) or `data/` (MZ), plus the packed and protected variants below.
+**Detected by** `www/data/` (MV) or `data/` (MZ), plus the packed variants below.
 
 **What comes out:** event dialogue and choices, battle-event dialogue, the database (items, weapons, armour, skills, states, enemies, classes, actors), `System.json` terms and messages, map names, translatable strings inside plugin parameters (a long block becomes one row per line), and dialogue kept in the ExternMessage plugin's CSV. Dialogue is re-wrapped to the message window's width on export, so a longer English line does not run off the box.
 
 **Awkward packaging, handled:**
 
 - **Enigma Virtual Box** builds, where `data/` lives inside the `.exe` and there is no folder to open. RuneTranslate unpacks the whole virtual filesystem and exports a complete, runnable, *unpacked* copy of the game with the translated data in it.
-- **Natively protected MZ**, where the data JSON is encrypted by a wrapper.
 - **Plugin-held scripts** — some games keep their entire character dialogue in a plugin's own scenario format outside `data/*.json`. Those are read too.
 
 **Export:** a full translated copy of the game folder. Double-click and play.
@@ -69,7 +68,7 @@ The most common engine in Japanese indie games, and the one RuneTranslate knows 
 
 The Ruby generation — a genuinely different runtime from MV/MZ (RGSS and Ruby Marshal data instead of JavaScript and JSON), so it gets its own adapter.
 
-**Detected by** a `Data/` folder of `.rxdata` / `.rvdata` / `.rvdata2`, or an encrypted `Game.rgssad` / `.rgss2a` / `.rgss3a` archive, which is decrypted automatically.
+**Detected by** a `Data/` folder of `.rxdata` / `.rvdata` / `.rvdata2`, or an RGSSAD archive (`Game.rgssad` / `.rgss2a` / `.rgss3a`), which is unpacked automatically.
 
 **What comes out:** event dialogue and choices, the database, and `System` terms.
 
@@ -91,7 +90,7 @@ The Ruby generation — a genuinely different runtime from MV/MZ (RGSS and Ruby 
 
 - **Source** `.rpy` — read directly.
 - **Compiled-only** `.rpyc` — decompiled first, so a game that shipped without sources still opens.
-- **Archived** `.rpa` — unpacked, including RPA-2 / 3 / 3.2 / 4.0 and the common vendor obfuscations, with the key detected automatically.
+- **Archived** `.rpa` — unpacked, including RPA-2 / 3 / 3.2 / 4.0 and the common vendor variants.
 
 **Export:** translation files written into the copied `game/` folder — a translations bundle, a small language hook, and a `translate <lang> strings:` block — plus a font covering your target's script when the Japanese game shipped none — Korean, Chinese, Thai, Arabic, Greek, Cyrillic and Latin-Extended are all covered. Dialogue is matched by source **text**, not by Ren'Py's generated identifiers, so it survives a game update that renumbers them.
 
@@ -105,17 +104,17 @@ There is also a second export mode that fills in the game's own `game/tl/<langua
 
 **Status: Full · ✅ Played** — [engine page](https://runetranslate.com/engines/kirikiri) · [walkthrough](https://runetranslate.com/blog/how-to-translate-kirikiri-visual-novels)
 
-The workhorse of Japanese commercial visual novels, and the most encryption-heavy engine on this list.
+The workhorse of Japanese commercial visual novels, and the engine with the most archive variants on this list.
 
 **Detected by** `.xp3` archives, KrkrZ markers, signed `.exe.emb` / `.xp3.sig` builds, and archives appended inside the `.exe` itself.
 
 **What comes out:** KAG `.ks` scenario text, inline `[ruby]` / `[name]` / `[title]` / `[button]` / `[edit]` tag text, and compiled PSB `.scn` scenarios.
 
-**Encryption:** around 25 XP3 schemes ported from the format-research community, plus a generic solver for simple single-byte obfuscations. An archive appended to the end of the executable is located the same way the engine itself does it.
+**Archive variants:** around 25 XP3 variants ported from the format-research community. An archive appended to the end of the executable is located the same way the engine itself does it.
 
 **Export:** loose files under the game's script folders **and** a `patch.xp3`. Two delivery routes on purpose, because no single one is universal — the loose files rely on the game running its own initialization hook, while `patch.xp3` is auto-mounted at higher priority and overrides even when that hook is commented out.
 
-**Out of scope:** encrypted or MDF-compressed PSB scenarios, compiled KAG bytecode, and schemes that need per-archive runtime state.
+**Out of scope:** non-standard or MDF-compressed PSB scenarios, compiled KAG bytecode, and XP3 variants outside the supported set.
 
 ---
 
@@ -123,11 +122,11 @@ The workhorse of Japanese commercial visual novels, and the most encryption-heav
 
 **Status: Full · ✅ Played** — [engine page](https://runetranslate.com/engines/wolf-rpg) · [walkthrough](https://runetranslate.com/blog/how-to-translate-wolf-rpg-to-english)
 
-**Detected by** a `.wolf` archive or a `BasicData` folder, at the game root or under `Data/`. Both the 2.x and the newer 3.x engine generations are supported, including encrypted archives.
+**Detected by** a `.wolf` archive or a `BasicData` folder, at the game root or under `Data/`. Both the 2.x and the newer 3.x engine generations are supported.
 
 **What comes out:** map events, common events, database entries and loose script files — messages, choices and database values, while comments and internal reference operands are deliberately left alone.
 
-**Export rebuilds the archive.** This matters more here than anywhere else: Wolf's runtime reads the `.wolf` archive *in preference to* loose files on disk, so a loose-only patch produces a green progress bar and a game still entirely in Japanese. RuneTranslate repacks with the same scheme the game's own archives declare, verifies the rebuilt archive holds at least what it was built from, and falls back to a documented loose-file delivery only when a rebuild genuinely cannot be produced.
+**Export rebuilds the archive.** This matters more here than anywhere else: Wolf's runtime reads the `.wolf` archive *in preference to* loose files on disk, so a loose-only patch produces a green progress bar and a game still entirely in Japanese. RuneTranslate repacks in the same format the game's own archives declare, verifies the rebuilt archive holds at least what it was built from, and falls back to a documented loose-file delivery only when a rebuild genuinely cannot be produced.
 
 **Worth knowing:** Wolf games are usually Shift-JIS, and RuneTranslate can render **Thai** in them by shipping a matching font and repointing the game's font table.
 
@@ -171,7 +170,7 @@ The catch-all for custom Electron shells — including Cocos Creator games — t
 - Localization tables (`m_Array` JSON tables, XUnity.AutoTranslator dictionaries)
 - `StreamingAssets` scripts and, for some in-house VN engines, their custom `StreamingAssets` archives — where the entire script sometimes turns out to live
 - String literals in a Mono `Assembly-CSharp.dll`, gated on how each one is actually used
-- Encrypted Addressable bundles, decrypted where the key can be recovered
+- Packed Addressable bundles, read and rewritten
 - Naninovel scripts, on old and new Unity versions alike
 - Dialogue and item text a game keeps in its own data files or language packs beside the game data
 
@@ -195,9 +194,9 @@ The catch-all for custom Electron shells — including Cocos Creator games — t
 
 **What comes out:** the `.locres` UI, menu, system and subtitle text. Every namespace, key and source-string hash is preserved exactly; only the value changes. For games that ship no `.locres` at all, text baked into cooked Blueprint assets can be lifted into a runtime `.locres` override instead.
 
-**Encryption:** AES-encrypted paks are supported, and the key is recovered from the game itself where possible rather than asked for.
+**Archives:** `.pak` archives (often Oodle-compressed) and UE5 IoStore containers are opened automatically.
 
-**Export:** a small, unencrypted override `_P.pak` that you drop into `Content/Paks`. Unreal mounts `_P` last, so it shadows the base archives — no re-signing, and a 60 GB game is not duplicated to change its menus. UE5 games whose text is cooked into their packages get the patched packages as an override container instead, and a game that never loads an added archive gets its translation written where the engine looks first.
+**Export:** a small override `_P.pak` that you drop into `Content/Paks`. Unreal mounts `_P` last, so it shadows the base archives — no re-signing, and a 60 GB game is not duplicated to change its menus. UE5 games whose text is cooked into their packages get the patched packages as an override container instead, and a game that never loads an added archive gets its translation written where the engine looks first.
 
 **Out of scope, and reported rather than silently skipped:** DataTables and general cooked `.uasset` text. Oodle-compressed loose paks need the bundled retoc sidecar or the game's own `oo2core` library.
 
@@ -235,7 +234,7 @@ The catch-all for custom Electron shells — including Cocos Creator games — t
 
 **Detected by** an SRPG Studio `data.dts`.
 
-**What comes out:** story text, the database, item and unit text, and event text — unpacked from the encrypted data file, translated, and repacked.
+**What comes out:** story text, the database, item and unit text, and event text — unpacked from the `data.dts` archive, translated, and repacked.
 
 **Export:** a full runnable copy of the game.
 
@@ -245,9 +244,9 @@ The catch-all for custom Electron shells — including Cocos Creator games — t
 
 **Status: Best-effort · ✅ Played** — [engine page](https://runetranslate.com/engines/nscripter) · [walkthrough](https://runetranslate.com/blog/how-to-translate-nscripter-onscripter-games)
 
-The classic doujin visual-novel engine and its open-source descendant, both of which keep the entire game in one script file at the game root.
+The classic indie visual-novel engine and its open-source descendant, both of which keep the entire game in one script file at the game root.
 
-**Detected by** `nscript.dat`, `nscript.zat` or a loose `0.txt`, in whichever obfuscated form the game shipped — the form is detected and the export is written back in the *same* form, because these engines will not read any other.
+**Detected by** `nscript.dat`, `nscript.zat` or a loose `0.txt`, in whichever encoded form the game shipped — the form is detected and the export is written back in the *same* form, because these engines will not read any other.
 
 **What comes out:** dialogue and choices. Commands that share a line with dialogue are recognised as commands and left untouched.
 
@@ -259,7 +258,7 @@ The classic doujin visual-novel engine and its open-source descendant, both of w
 
 **Status: Full · ✅ Played** — [engine page](https://runetranslate.com/engines/artemis) · [walkthrough](https://runetranslate.com/blog/how-to-translate-artemis-games)
 
-**Detected by** `.pfs` archives (PF8, PF6 and PF2, including PF8's hash-based encryption).
+**Detected by** `.pfs` archives (PF8, PF6 and PF2).
 
 **What comes out:** dialogue, speaker names and choices from the Lua-based `.ast` and `.txt` scripts.
 
@@ -277,7 +276,7 @@ raiL-soft's engine, handled in pure Rust with no external tool.
 
 **Detected by** a `.ypf` package in the root or `pac/`, or a loose `ysbin/` folder of YSTB `.ybn` scripts.
 
-**What comes out:** dialogue from the compiled YSTB scripts, with the per-script XOR key worked out automatically. Raw YU-RIS dialogue carries nothing that marks it as text, so the adapter identifies script *values* by their declared type and by the engine's own command grammar rather than by looking at the words — which is what keeps bytecode out of your line list.
+**What comes out:** dialogue from the compiled YSTB scripts, decoded automatically. Raw YU-RIS dialogue carries nothing that marks it as text, so the adapter identifies script *values* by their declared type and by the engine's own command grammar rather than by looking at the words — which is what keeps bytecode out of your line list.
 
 **Export:** a loose-file override on a copy of the game.
 
@@ -289,9 +288,9 @@ raiL-soft's engine, handled in pure Rust with no external tool.
 
 **Status: Full** — [engine page](https://runetranslate.com/engines/alicesoft) · [walkthrough](https://runetranslate.com/blog/how-to-translate-alicesoft-games)
 
-The Rance and Evenicle era of AliceSoft's in-house engine, handled in pure Rust.
+AliceSoft's in-house engine, handled in pure Rust.
 
-**Detected by** `.ald` / `.afa` archives and a `System39.ain` (System 3.x) or per-game `.ain` (System 4), including the compressed and encrypted container variants.
+**Detected by** `.ald` / `.afa` archives and a `System39.ain` (System 3.x) or per-game `.ain` (System 4), including the compressed and packed container variants.
 
 **What comes out:** the message text.
 

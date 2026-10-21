@@ -34,18 +34,18 @@ Plain JSON. `Map001.json` and friends hold events and dialogue; `Items.json`, `A
 
 ### `.rgssad` · `.rgss2a` · `.rgss3a` — RPG Maker XP / VX / VX Ace archive
 
-The encrypted archive holding everything the Ruby generation of RPG Maker ships: `Data/`, `Graphics/`, `Audio/`. `.rgssad` is XP, `.rgss2a` is VX, `.rgss3a` is VX Ace.
-**Readable?** Not directly. RuneTranslate decrypts it automatically. → [RPG Maker XP / VX / VX Ace](engines.md#rpg-maker-xp--vx--vx-ace)
+The packed archive holding everything the Ruby generation of RPG Maker ships: `Data/`, `Graphics/`, `Audio/`. `.rgssad` is XP, `.rgss2a` is VX, `.rgss3a` is VX Ace.
+**Readable?** Not directly. RuneTranslate unpacks it automatically. → [RPG Maker XP / VX / VX Ace](engines.md#rpg-maker-xp--vx--vx-ace)
 
 ### `.rxdata` · `.rvdata` · `.rvdata2` — RPG Maker XP / VX / VX Ace data
 
 Ruby Marshal serialization — the Ruby equivalent of MV/MZ's JSON, holding maps, events and the database. XP and VX store text as Shift-JIS; VX Ace uses UTF-8.
 **Readable?** Binary. RuneTranslate parses them directly.
 
-### `.rpgmvp` · `.rpgmvo` · `.rpgmvm` · `.png_` · `.ogg_` · `.m4a_` — encrypted RPG Maker assets
+### `.rpgmvp` · `.rpgmvo` · `.rpgmvm` · `.png_` · `.ogg_` · `.m4a_` — packed RPG Maker assets
 
-Ordinary PNG, OGG and M4A files with an encrypted header. The `.rpgmv*` set is MV; the trailing-underscore set is MZ. Some games use an encryption *plugin* with a scheme of its own instead of RPG Maker's.
-**Readable?** Rename to `.png` and it will not open — the header is scrambled. The [Image Studio](https://runetranslate.com/image-translation) reads and re-encrypts these, working the scheme out from the file itself rather than assuming RPG Maker's, so plugin-encrypted games work too.
+RPG Maker's packed formats for PNG, OGG and M4A files. The `.rpgmv*` set is MV; the trailing-underscore set is MZ. Some games use a *plugin* with a packed format of its own instead of RPG Maker's.
+**Readable?** Rename to `.png` and it will not open. The [Image Studio](https://runetranslate.com/image-translation) reads these and writes changed images back in the same format, including the variants some plugins produce.
 
 ### `.lsd` — RPG Maker 2000 / 2003 save
 
@@ -68,8 +68,8 @@ The bytecode Ren'Py generates from a `.rpy`. Many commercial games ship *only* t
 
 ### `.rpa` — Ren'Py archive
 
-The container holding a Ren'Py game's scripts and assets. Versions RPA-2, RPA-3, RPA-3.2 and RPA-4.0 exist, and some vendors obfuscate the index.
-**Readable?** Not directly. RuneTranslate unpacks all of the above, detecting the key automatically.
+The container holding a Ren'Py game's scripts and assets. Versions RPA-2, RPA-3, RPA-3.2 and RPA-4.0 exist, and some vendors use a variant of their own.
+**Readable?** Not directly. RuneTranslate unpacks all of the above.
 
 ---
 
@@ -77,8 +77,8 @@ The container holding a Ren'Py game's scripts and assets. Versions RPA-2, RPA-3,
 
 ### `.xp3` — Kirikiri archive
 
-The container almost every Kirikiri visual novel ships. Frequently encrypted, and the encryption is usually per-publisher rather than standard. An `.xp3` can also be appended to the end of the game's `.exe` with no separate file on disk at all.
-**Readable?** Not directly. RuneTranslate ports around 25 known schemes plus a solver for simple ones. → [Kirikiri / KAG](engines.md#kirikiri--kag)
+The container almost every Kirikiri visual novel ships. Many publishers use an archive variant of their own rather than the standard one. An `.xp3` can also be appended to the end of the game's `.exe` with no separate file on disk at all.
+**Readable?** Not directly. RuneTranslate supports around 25 known archive variants. → [Kirikiri / KAG](engines.md#kirikiri--kag)
 
 ### `.ks` — KAG scenario script
 
@@ -87,8 +87,8 @@ Kirikiri's scenario format: dialogue interleaved with `[tags]`. Also the extensi
 
 ### `.scn` — compiled PSB scenario
 
-A Kirikiri scenario compiled into PSB, a binary structure format. Some are additionally encrypted or MDF-compressed.
-**Readable?** No. RuneTranslate reads the unencrypted, non-compressed form; the encrypted variants are out of scope and are reported rather than silently skipped.
+A Kirikiri scenario compiled into PSB, a binary structure format. Some use a non-standard variant or are MDF-compressed.
+**Readable?** No. RuneTranslate reads the standard, non-compressed form; the other variants are out of scope and are reported rather than silently skipped.
 
 ### `.tjs` — Kirikiri script
 
@@ -104,7 +104,7 @@ Kirikiri's own lossless image format. The Image Studio reads and writes it, so a
 
 ### `.wolf` — Wolf RPG archive
 
-A DXArchive container, usually encrypted, holding `Data/`. **The engine reads this archive in preference to loose files on disk** — which is why a translation delivered as loose files alone appears to do nothing at all. RuneTranslate rebuilds the archive. → [Wolf RPG](engines.md#wolf-rpg-editor)
+A DXArchive container holding `Data/`. **The engine reads this archive in preference to loose files on disk** — which is why a translation delivered as loose files alone appears to do nothing at all. RuneTranslate rebuilds the archive. → [Wolf RPG](engines.md#wolf-rpg-editor)
 
 ### `.dat` (Wolf) — common events and database
 
@@ -125,7 +125,7 @@ Unity's serialized asset files, under `<GameName>_Data/`. Text lives in them as 
 
 ### `data.unity3d` · `.bundle` · `.unity3d` — Unity asset bundles
 
-Bundled assets, sometimes compressed and sometimes encrypted (Addressables can be shipped with AES encryption). A rewritten bundle also has to have its catalog entry updated or the game will refuse to load it.
+Bundled assets, sometimes compressed and sometimes packed (some Addressable bundles ship that way). A rewritten bundle also has to have its catalog entry updated or the game will refuse to load it.
 
 ### `StreamingAssets/` — anything at all
 
@@ -141,7 +141,7 @@ A .NET assembly on Mono builds. Strings compiled into it can be read and rewritt
 
 ### `.pak` — Unreal package archive
 
-The main container, under `<Game>/Content/Paks/`. Often AES-encrypted, and often Oodle-compressed. Note that **`_P.pak` files mount last**, which is why an override pak is the polite way to patch an Unreal game — no repack, no re-sign, no duplicated 60 GB. → [Unreal Engine](engines.md#unreal-engine-4--5)
+The main container, under `<Game>/Content/Paks/`. Often Oodle-compressed; RuneTranslate opens it automatically. Note that **`_P.pak` files mount last**, which is why an override pak is the polite way to patch an Unreal game — no repack, no re-sign, no duplicated 60 GB. → [Unreal Engine](engines.md#unreal-engine-4--5)
 
 ### `.utoc` · `.ucas` — UE5 IoStore containers
 
@@ -162,7 +162,7 @@ Everything else Unreal cooks. Text baked into Blueprints lives here; general `.u
 
 ### `.pck` — Godot package
 
-Everything a Godot game ships. It may sit beside the executable, or be **embedded inside the `.exe`** with no `.pck` on disk. Godot 3 and Godot 4 use different layouts, and the pack can be encrypted.
+Everything a Godot game ships. It may sit beside the executable, or be **embedded inside the `.exe`** with no `.pck` on disk. Godot 3 and Godot 4 use different layouts.
 **Readable?** Not directly. RuneTranslate unpacks both, embedded included. → [Godot](engines.md#godot-3x--4x)
 
 ### `.translation` — Godot compiled translation
@@ -179,7 +179,7 @@ Script and scene files. In a `.pck` they are usually stored compiled, which is w
 
 ### `nscript.dat` · `nscript.zat` · `0.txt` — NScripter / ONScripter script
 
-The whole game in one file: dialogue, choices and commands. `0.txt` is the plain form; `nscript.dat` and `nscript.zat` are obfuscated in two different ways, and the engine will only load the form it expects — so a translation has to be written back in the *same* form it was read in. → [NScripter / ONScripter](engines.md#nscripter--onscripter)
+The whole game in one file: dialogue, choices and commands. `0.txt` is the plain form; `nscript.dat` and `nscript.zat` are encoded in two different ways, and the engine will only load the form it expects — so a translation has to be written back in the *same* form it was read in. → [NScripter / ONScripter](engines.md#nscripter--onscripter)
 
 ### `.nsa` · `.sar` — NScripter archive
 
@@ -187,12 +187,12 @@ The asset containers beside the script. The Image Studio reads images out of the
 
 ### `.pfs` — Artemis archive
 
-The container for Artemis (Mikage) visual novels, in PF8, PF6 and PF2 variants; PF8 adds a hash-based scrambling of the data. Dialogue inside lives in `.ast` and `.txt` scripts. → [Artemis](engines.md#artemis-mikage)
+The container for Artemis (Mikage) visual novels, in PF8, PF6 and PF2 variants. Dialogue inside lives in `.ast` and `.txt` scripts. → [Artemis](engines.md#artemis-mikage)
 
 ### `.ypf` — YU-RIS package
 
-raiL-soft's archive format. The scripts inside are `.ybn` files in the YSTB format, obfuscated with a per-script key.
-**Readable?** No. RuneTranslate recovers the key by itself. → [YU-RIS](engines.md#yu-ris)
+raiL-soft's archive format. The scripts inside are compiled `.ybn` files in the YSTB format.
+**Readable?** No. RuneTranslate decodes them automatically. → [YU-RIS](engines.md#yu-ris)
 
 ### `.ald` · `.afa` · `.ain` — AliceSoft System
 
@@ -204,7 +204,7 @@ LiveMaker's compiled scenario: dialogue, menu choices and flow logic in one bina
 
 ### `data.dts` — SRPG Studio data
 
-The single encrypted file holding an SRPG Studio game's story, database, units and events. → [SRPG Studio](engines.md#srpg-studio)
+The single packed file holding an SRPG Studio game's story, database, units and events. → [SRPG Studio](engines.md#srpg-studio)
 
 ---
 

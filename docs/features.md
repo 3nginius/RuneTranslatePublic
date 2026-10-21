@@ -39,10 +39,10 @@ This page lists everything, with the minimum tier next to it.
 | **Cost estimate before a run** | Free | On OpenAI, Anthropic or DeepSeek runs over 100 lines, expected tokens and USD are shown before anything is sent |
 | **Live progress and ETA** | Free | A real progress bar with a cumulative-average ETA, plus a finish notification and chime |
 | **Resume and retry** | Free | Runs pick up where they stopped; failed lines can be retried on a different provider without redoing the rest |
-| **Full-speed translation** | Supporter | Free runs with fewer parallel requests, half the batch size and a short pause between batches — measured at roughly **2× the wall-clock time on AI providers**, and less on the free scrapers. Quality is identical at every tier |
+| **Full-speed translation** | Supporter | Free runs with fewer parallel requests, half the batch size and a short pause between batches — measured at roughly **2× the wall-clock time on AI providers**, and less on the free providers. Quality is identical at every tier |
 | **Provider routing** | Supporter | Split a run into two lanes automatically: short strings (item names, "Yes"/"No", labels) to a cheap or free engine, long dialogue to your premium one. Both lanes run in parallel, and on most games the cheap lane carries the larger share of the line count |
 | **Translation memory** | Supporter | Every JP → target pair cached across all your projects, synced to your account, so a repeated line never costs a provider call twice — and your hand-fixed wording carries forward. CSV import/export, and a compaction tool |
-| **Your own proxies** | Pro | Google and free DeepL limit by IP address, not by account. Route the free engines through your own HTTP/HTTPS or SOCKS proxies, test each one's latency and real exit IP, and let requests rotate automatically. RuneTranslate never supplies proxies. [Guide](https://runetranslate.com/blog/translate-with-your-own-proxies) |
+| **Network proxy settings** | Pro | Send translation traffic through proxies you configure; RuneTranslate never supplies proxies. |
 
 ---
 
@@ -99,7 +99,7 @@ The **Image Studio** is for the Japanese painted into a game's artwork — title
 | **Round-trip to Photoshop** | Supporter | Export a page (or every page in the current view) as PNG — plain artwork or the finished look — redraw it anywhere, and import it back as that page's base. A Kirikiri `.tlg` goes back as a `.tlg` |
 | **Higher daily quota** | Pro / Ultimate | Detection and background rebuilding run on RuneTranslate's own OCR service and are metered per day: about 50 pages a day on Supporter, 270 on Pro and 540 on Ultimate |
 
-**Engines with image support:** RPG Maker MV/MZ (encrypted `.rpgmvp` and `.png_` included — the cipher is detected, not assumed), Kirikiri XP3 with TLG, NScripter `.nsa` / `.sar`, Ren'Py loose art and `.rpa`, Electron `app.asar`, and any engine that keeps its images in ordinary folders.
+**Engines with image support:** RPG Maker MV/MZ (including RPG Maker's packed image formats, `.rpgmvp` / `.png_`), Kirikiri XP3 with TLG, NScripter `.nsa` / `.sar`, Ren'Py loose art and `.rpa`, Electron `app.asar`, and any engine that keeps its images in ordinary folders.
 
 ---
 

@@ -36,7 +36,7 @@ Almost always one bad line rather than a broken export. Some engines store dialo
 3. If safe mode works but you want the full translation back, run the **guided hunt** (Supporter): it builds a trial version, you say whether it ran, and the next trial narrows the range — usually ten to fourteen rounds to name the exact line.
 4. Fix or exclude the culprit and re-export.
 
-**Check first, because they are quick:** did you export into the game's own folder (export somewhere fresh instead), and is the output path very long or does it contain non-Latin-1 characters? A Ren'Py game can fail to start from a folder with such characters in its path, and a natively-protected RPG Maker MZ export needs a game-root path of about 65 characters or fewer.
+**Check first, because they are quick:** did you export into the game's own folder (export somewhere fresh instead), and is the output path very long or does it contain non-Latin-1 characters? A Ren'Py game can fail to start from a folder with such characters in its path, and some RPG Maker MZ exports need a game-root path of about 65 characters or fewer.
 
 ---
 
@@ -96,13 +96,12 @@ Four causes, in rough order of likelihood:
 
 ## Translation is slow, or stops with a rate limit
 
-**The free provider routes are unofficial endpoints.** They are rate-limited by the service, not by RuneTranslate, and the limits are per **IP address**, not per account.
+**The free provider routes are unofficial endpoints.** They are rate-limited by the service, not by RuneTranslate, and can change without notice.
 
 - **Wait it out.** The app tells you when a limit is real rather than grinding through silent retries. Free Google limits usually clear in tens of minutes.
 - **Switch provider.** Free DeepL and free Google have separate limits; the keyed providers have none worth worrying about.
 - **Use a local model.** Ollama or LM Studio has no limit and no cost beyond your own hardware.
 - **Route your run** (Supporter). Provider routing sends short strings to a free engine and dialogue to a paid one, which spreads the load and usually finishes faster than either alone.
-- **Use your own proxies** (Pro). Because the limit is per IP, rotating across your own proxies turns one capped address into many. [Guide](https://runetranslate.com/blog/translate-with-your-own-proxies)
 
 **If it is slow but nothing is failing**, and you are on the free tier, that is the throttle: roughly 2× the wall-clock time on AI providers. The banner above the progress bar says so while a run is going.
 

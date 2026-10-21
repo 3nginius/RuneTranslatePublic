@@ -52,7 +52,7 @@ Roughly **twice the wall-clock time on the AI providers**, and less than that on
 
 **Supporter ($3.99/month)** removes the throttle and adds RuneLingua with 1,500,000 characters a month, cloud translation memory, the glossary, provider routing, the overnight batch queue, collaborative project hosting, the full Image Studio editor, the advanced Cheat Mode tools, beta builds and 10 concurrent projects.
 
-**Pro ($5.99/month)** includes everything in Supporter, plus 2,500,000 RuneLingua characters a month, 30 projects, animated scene themes, a larger Image Studio quota, and the bring-your-own proxy pool.
+**Pro ($5.99/month)** includes everything in Supporter, plus 2,500,000 RuneLingua characters a month, 30 projects, animated scene themes, a larger Image Studio quota, and network proxy settings.
 
 **Ultimate ($9.99/month)** includes everything in Pro, plus 6,000,000 RuneLingua characters a month, the largest Image Studio quota, 100 projects, and the Developer tab for importing your own CSV, JSON, PO and XLIFF strings.
 
@@ -160,9 +160,9 @@ Seventeen game engines, plus the gettext catalog format — eighteen entries in 
 
 Open the folder in *New project* anyway — a great many games run on a supported engine without advertising it: a custom Electron shell, a Cocos Creator build, a Unity game with an unusual folder name. If the game ships `.po` / `.mo` catalogs, or you can get CSV / JSON / XLIFF out of it, those work regardless of engine. And if it really is something new, [say so on Discord](https://discord.gg/ZtsfZu7YsW) or email `runetranslate@gmail.com` with the game and a folder listing — most of the supported engines were added because somebody did exactly that.
 
-### Does it work on doujin, eroge and adult games?
+### Does it work on small indie games?
 
-Yes. RuneTranslate is engine-aware, not content-aware. If the game runs on a supported engine, it works regardless of theme.
+Yes. RuneTranslate works by engine, so any game on a supported engine translates the same way, whatever its genre. Choose your provider with the writing in mind: hosted LLMs keep tone and voice best but can occasionally soften or skip a line, the free machine-translation routes handle slang and onomatopoeia poorly, and a local model through Ollama or LM Studio runs entirely on your PC.
 
 ### Does it work on Steam games?
 

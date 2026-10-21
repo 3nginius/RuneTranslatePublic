@@ -98,7 +98,7 @@ Where they genuinely differ is the output. Sugoi is primarily a translation *eng
 
 XUnity.AutoTranslator is the standard answer for Unity games and it is genuinely good at what it does: MIT-licensed, widely used, and able to translate text that only exists at runtime — including strings compiled into an IL2CPP binary, which no file patcher can reach.
 
-RuneTranslate takes Unity at the file level instead: `TextAsset` and `MonoBehaviour` strings, localization tables, `StreamingAssets` scripts, encrypted Addressable bundles and Mono `Assembly-CSharp.dll` literals, with identifier and lookup-key shapes excluded structurally so a translated control id cannot hang the game on a loading screen. What you get is a translated copy of the game rather than a plugin that has to keep running — and the same app handles the other sixteen engines and formats when your next game is not Unity.
+RuneTranslate takes Unity at the file level instead: `TextAsset` and `MonoBehaviour` strings, localization tables, `StreamingAssets` scripts, packed Addressable bundles and Mono `Assembly-CSharp.dll` literals, with identifier and lookup-key shapes excluded structurally so a translated control id cannot hang the game on a loading screen. What you get is a translated copy of the game rather than a plugin that has to keep running — and the same app handles the other sixteen engines and formats when your next game is not Unity.
 
 → [The detailed head-to-head](https://runetranslate.com/compare/xunity-autotranslator)
 
@@ -150,7 +150,7 @@ A patcher, and only a patcher. You need an editable project, consistency tooling
 
 ### My Unity game will not open in anything else
 
-Try RuneTranslate first: it reads Unity's externalized text on both Mono and IL2CPP builds, including localization tables and encrypted Addressable bundles. On Mono builds it also reads the strings compiled into `Assembly-CSharp.dll`. Only IL2CPP-compiled managed strings are out of reach — that is the one case where a runtime hook is the right tool.
+Try RuneTranslate first: it reads Unity's externalized text on both Mono and IL2CPP builds, including localization tables and packed Addressable bundles. On Mono builds it also reads the strings compiled into `Assembly-CSharp.dll`. Only IL2CPP-compiled managed strings are out of reach — that is the one case where a runtime hook is the right tool.
 
 ### It is a visual novel with a weird engine
 
