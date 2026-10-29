@@ -14,7 +14,7 @@ Eighteen engines and formats are supported — seventeen game engines plus the g
 
 ### What do I need before I start?
 
-Windows 10 or 11 (x64) or Linux (the Steam Deck included), the game folder, and a free Patreon sign-in. That is all. You do not need an API key, a compiler, Python, or any runtime installed first, and you do not need to know anything about the engine your game uses.
+Windows 10 or 11 (x64) or Linux (the Steam Deck included), the game folder, and a free sign-in (Patreon, Google or an email account). That is all. You do not need an API key, a compiler, Python, or any runtime installed first, and you do not need to know anything about the engine your game uses.
 
 ### How do I translate a game?
 
@@ -24,7 +24,7 @@ The [beginner's walkthrough](https://runetranslate.com/blog/how-to-translate-a-j
 
 ### Do I need an account?
 
-Yes. The app signs in with Patreon on first launch and there is no signed-out mode. Signing in is free and takes one click — no pledge required — and "free tier" means exactly that: signed in, not pledging. After the first sign-in your sign-in is verified on your own machine, so the app keeps working with no connection; it re-checks about once a day, so you do need to be online occasionally.
+Yes. The app asks you to sign in on first launch, with Patreon, Google or an email account made on runetranslate.com, and there is no signed-out mode. Signing in is free and takes a minute, with no payment required, and "free tier" means exactly that: signed in, with no paid plan. After the first sign-in your sign-in is verified on your own machine, so the app keeps working with no connection; it re-checks about once a day, so you do need to be online occasionally.
 
 ### How long does a whole game take?
 
@@ -36,7 +36,7 @@ Usually one sitting. A short visual novel of a few thousand lines is minutes on 
 
 ### Is it free?
 
-Yes, once you sign in. Every engine, every language, the whole editor, the AI refiner, the save editor and Cheat Mode's core cheats are unlocked with no pledge, and so is every provider except RuneTranslate's own RuneLingua. There is no paid-only engine and no paid-only language.
+Yes, once you sign in. Every engine, every language, the whole editor, the AI refiner, the save editor and Cheat Mode's core cheats are unlocked without paying, and so is every provider except RuneTranslate's own RuneLingua. There is no paid-only engine and no paid-only language.
 
 What free gives up is throughput and convenience: translation runs slower, you keep one project at a time, the Image Studio opens read-only, and patch sharing is limited to one export and one import every three days.
 
@@ -52,15 +52,15 @@ Roughly **twice the wall-clock time on the AI providers**, and less than that on
 
 **Supporter ($3.99/month)** removes the throttle and adds RuneLingua with 1,500,000 characters a month, cloud translation memory, the glossary, provider routing, the overnight batch queue, collaborative project hosting, the full Image Studio editor, the advanced Cheat Mode tools, beta builds and 10 concurrent projects.
 
-**Pro ($5.99/month)** includes everything in Supporter, plus 2,500,000 RuneLingua characters a month, 30 projects, animated scene themes, a larger Image Studio quota, and network proxy settings.
+**Pro ($5.89/month)** includes everything in Supporter, plus 2,500,000 RuneLingua characters a month, 30 projects, animated scene themes, a larger Image Studio quota, and network proxy settings.
 
-**Ultimate ($9.99/month)** includes everything in Pro, plus 6,000,000 RuneLingua characters a month, the largest Image Studio quota, 100 projects, and the Developer tab for importing your own CSV, JSON, PO and XLIFF strings.
+**Ultimate ($9.69/month)** includes everything in Pro, plus 6,000,000 RuneLingua characters a month, the largest Image Studio quota, 100 projects, and the Developer tab for importing your own CSV, JSON, PO and XLIFF strings.
 
-All three are monthly memberships on [Patreon](https://www.patreon.com/cw/runetranslate/membership).
+Those are the prices for paying directly on [runetranslate.com/upgrade](https://runetranslate.com/upgrade), the recommended route. The same three plans are also monthly memberships on [Patreon](https://www.patreon.com/cw/runetranslate/membership), at $3.99, $5.99 and $9.99.
 
 ### Do I have to keep paying to keep a translation I made?
 
-No. Project files live on your own disk, exported builds are standalone folders that run with the app closed, and nothing expires or phones home to keep a finished translation working. If a subscription lapses you drop to the free tier, which still has every engine, every provider and the full editor at throttled speed.
+No. Project files live on your own disk, exported builds are standalone folders that run with the app closed, and nothing expires or phones home to keep a finished translation working. If a subscription lapses you drop to the free tier, which still has every engine, every provider except RuneLingua and the full editor at throttled speed.
 
 ### How many projects can I have at once?
 
@@ -72,13 +72,13 @@ One on free, 10 on Supporter, 30 on Pro, 100 on Ultimate. It counts projects sit
 
 ### Do I need an API key?
 
-No. Six providers need no key: RuneTranslate's own RuneLingua on a paid plan, free Google Translate, two free DeepL routes, Gemini Nano running on your own PC through Chrome, and a local model via Ollama or LM Studio, which runs fully offline with no per-token cost.
+No. Four providers are free and need no key or account: Google Translate, two free DeepL routes, and Gemini Nano running on your own PC through Chrome. A local model via Ollama or LM Studio needs no key either and runs fully offline with no per-token cost, and RuneTranslate's own RuneLingua comes with every paid plan with nothing to set up.
 
 Keys are only needed if you *want* DeepL's official API, OpenAI, Anthropic, DeepSeek, or an OpenAI-compatible endpoint like OpenRouter. With an Anthropic or OpenAI key you can also send a project through their Batch API, at about half the normal price, with results back within 24 hours.
 
 ### What is RuneLingua?
 
-RuneTranslate's own machine translation engine, running on our own GPU. It needs no API key and no account with anyone else: pick it in the provider list and translate. It comes with Supporter, Pro and Ultimate, metered by a monthly character allowance (1.5M, 2.5M and 6M characters) that the editor shows next to the provider picker, and lines answered from translation memory cost nothing. It covers 21 languages, and the app flags the others before a run. It is plain machine translation, so it takes no custom prompt and is not offered as the AI refiner.
+RuneTranslate's own machine translation engine, running on our own GPU. It needs no API key and no account with anyone else: pick it in the provider list and translate. It comes with Supporter, Pro and Ultimate, metered by a monthly character allowance (1.5M, 2.5M and 6M characters) that the editor shows next to the provider picker, and lines answered from translation memory cost nothing. It covers all 35 target languages. It is plain machine translation, so it takes no custom prompt and is not offered as the AI refiner.
 
 ### Which provider is cheapest?
 
@@ -90,7 +90,7 @@ For long Japanese dialogue, DeepL and the larger LLMs are the strong options; Cl
 
 ### Does my game's text go through your servers?
 
-Only when you pick RuneLingua, RuneTranslate's own engine, which translates the lines you send it on our GPU. Every other provider gets your lines straight from your PC. RuneTranslate's own servers also handle sign-in, updates, and the cloud features you opt into: translation memory sync, collaborative projects, and the Image Studio, which sends the image crops you are working on to our own OCR service so it can read the text and repaint the artwork behind it. Nothing else leaves your PC.
+Only when you pick RuneLingua, RuneTranslate's own engine, which translates the lines you send it on our GPU; they pass through our server and are not stored. Every other provider gets your lines straight from your PC. RuneTranslate's own servers also handle sign-in, updates, and the cloud features you opt into: translation memory sync, collaborative projects, and the Image Studio, which sends the image crops you are working on to our own OCR service so it can read the text and repaint the artwork behind it. Nothing else leaves your PC.
 
 ### Where are my API keys stored?
 
@@ -112,7 +112,7 @@ Almost every engine gets a **full translated copy** of the game folder that you 
 
 ### Will it damage or overwrite my game?
 
-Translating never writes to your game folder. Extraction opens the game read-only, any unpacking happens in a workspace inside the app's own data folder, and export writes a fresh copy or a small override into a folder you select — so undoing an export means deleting that folder. The app also warns you before exporting into the game's own folder or over existing save files.
+Translating never writes to your game folder. Extraction opens the game read-only, any unpacking happens in a workspace in the app's game cache (the app's own data folder, or a drive you choose in Settings), and export writes a fresh copy or a small override into a folder you select, so undoing an export means deleting that folder. The app also warns you before exporting into the game's own folder or over existing save files.
 
 The one feature that *does* modify a game in place is Cheat Mode, which you point at a folder deliberately and which has a one-click Remove. The export guard warns you before writing into a folder inside the game's own folder, or over save files it finds. Back up anything irreplaceable anyway, and note that most engines produce a full game copy, so give the output drive room.
 
@@ -138,11 +138,11 @@ Translating a game you legally own for your own use is generally fine, and fan t
 
 ### Can it translate *from* something other than Japanese?
 
-Yes — any of the 35 languages can be the source. Japanese is only the default because it is what most users bring. An English, Chinese or Korean game translates the same way.
+Yes. Any of the 35 languages can be the source, set per project; Japanese is only the default because it is what most users bring. An English, Chinese or Korean game translates the same way. A few older engines built for Japanese games (YU-RIS, AliceSoft, LiveMaker, and Wolf RPG games older than 2.20) read Japanese-encoded text only, so a Chinese or Korean release on one of those may not open; Kirikiri, Artemis, NScripter and newer Wolf RPG games also read Unicode text.
 
 ### The translated text shows as boxes or question marks. Why?
 
-That is a font problem, not a translation problem: the game ships a font with no glyphs for your language, so the engine draws a placeholder box. RuneTranslate bundles fonts for the engines where that is possible — Ren'Py targets that need Latin-Extended or Cyrillic, for instance — and for a few Japanese-charset-only engines (NScripter, Artemis, Wolf RPG) it can ship a purpose-built font that renders **Thai**. There is a [full write-up](https://runetranslate.com/blog/unity-translated-text-shows-boxes).
+That is a font problem, not a translation problem: the game ships a font with no glyphs for your language, so the engine draws a placeholder box. Many engines are handled automatically: Ren'Py, Unity, Unreal and GameMaker exports add a font that can draw your language, and for a few Japanese-charset-only engines (NScripter, Artemis, Wolf RPG) RuneTranslate can ship a purpose-built font that renders **Thai**. Arabic is written right to left in RPG Maker MV and MZ and in Unity. Literal question marks are a different problem: an encoding limit in the engine's own string format. There is a [full write-up](https://runetranslate.com/blog/unity-translated-text-shows-boxes).
 
 ### Is the app itself available in my language?
 

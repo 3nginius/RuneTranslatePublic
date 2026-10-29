@@ -10,7 +10,7 @@ Three things are true of every engine below:
 - **Every line is editable** before and after translation, and every line can be reset to the source text it was extracted from.
 - **What you get is a build, not a session.** No overlay, no injected process, nothing running alongside the game.
 
-**Legend** — *Full*: handled end to end. *Best-effort*: games in that family vary enough that some need a hand, and the app says so instead of failing quietly. ✅ *Played*: a real game was translated, exported, launched and played with translated text on screen, on a recorded app version.
+**Legend:** *Full*: handled end to end. ✅ *Played*: a real game was translated, exported, launched and played with translated text on screen, on a recorded app version. Every engine on this page has been. Games on the same engine still vary, so check the exported build of an unusual title before you share it; when the app hits something it cannot read, it says so instead of failing quietly.
 
 ---
 
@@ -49,6 +49,14 @@ The most common engine in Japanese indie games, and the one RuneTranslate knows 
 
 **What comes out:** event dialogue and choices, battle-event dialogue, the database (items, weapons, armour, skills, states, enemies, classes, actors), `System.json` terms and messages, map names, translatable strings inside plugin parameters (a long block becomes one row per line), and dialogue kept in the ExternMessage plugin's CSV. Dialogue is re-wrapped to the message window's width on export, so a longer English line does not run off the box.
 
+**Plugins, handled:**
+
+- **Text inside a game's own plugins.** Many games come with plugins made just for them that draw menus, status screens, notebooks and on-screen labels straight from their code. That text is listed and translated. Only the lines the game actually shows are offered; what the plugin uses to work (names it looks up, choices it compares, file names) is left alone.
+- **VisuStella** (MZ) event labels, proximity pop-ups, side-chatter messages and text windows are ordinary lines in the project.
+- **Galv's Quest Log**: quest names, objectives and descriptions are translated with the log's own labels and categories, and descriptions are re-wrapped to fit the quest window.
+- **Plugin settings** that hold code, fixed choices or on/off values, and the settings of switched-off plugins, are left out and keep their own value at export, so a translation cannot stop a plugin from loading.
+- **One script folder per language**, loaded by a language plugin, is read too.
+
 **Awkward packaging, handled:**
 
 - **Enigma Virtual Box** builds, where `data/` lives inside the `.exe` and there is no folder to open. RuneTranslate unpacks the whole virtual filesystem and exports a complete, runnable, *unpacked* copy of the game with the translated data in it.
@@ -56,7 +64,7 @@ The most common engine in Japanese indie games, and the one RuneTranslate knows 
 
 **Export:** a full translated copy of the game folder. Double-click and play.
 
-**Arabic:** an MV game exported into Arabic draws its text right to left with the letters joined, in messages, choices, menus and the battle log, through a small plugin and an Arabic font the export adds. MZ handles Arabic itself and is left as it is. On by default, and Settings > Engines turns it off.
+**Arabic:** an MV game exported into Arabic draws its text right to left with the letters joined, in messages, choices, menus and the battle log, through a small plugin and an Arabic font the export adds. MZ draws Arabic right to left on its own; its export adds an Arabic font and keeps each line inside the message box, clear of portraits, even where a message plugin decides where lines start. On by default, and Settings > Engines > *Arabic text for RPG Maker MV and MZ* turns it off.
 
 **Also for RPG Maker:** the [save editor](https://runetranslate.com/save-editor) opens `.rpgsave` and `.rmmzsave`, and [Cheat Mode](https://runetranslate.com/cheat-mode) injects an in-game cheat menu.
 
@@ -64,7 +72,7 @@ The most common engine in Japanese indie games, and the one RuneTranslate knows 
 
 ## RPG Maker XP / VX / VX Ace
 
-**Status: Full** — [engine page](https://runetranslate.com/engines/rpg-maker-xp-vx-ace)
+**Status: Full · ✅ Played** — [engine page](https://runetranslate.com/engines/rpg-maker-xp-vx-ace)
 
 The Ruby generation — a genuinely different runtime from MV/MZ (RGSS and Ruby Marshal data instead of JavaScript and JSON), so it gets its own adapter.
 
@@ -74,17 +82,19 @@ The Ruby generation — a genuinely different runtime from MV/MZ (RGSS and Ruby 
 
 **Export:** a full runnable copy of the game.
 
-**Worth knowing:** XP and VX render text as Shift-JIS, so they suit English and other Latin-script targets best; VX Ace is UTF-8 and has no such limit. Strings written directly into the Ruby `Scripts` section are out of scope.
+**Worth knowing:** XP and VX store text with no encoding tag, so RuneTranslate works out per game whether it is Shift-JIS or UTF-8. A UTF-8 game keeps every letter of your translation; on a Shift-JIS game, letters that encoding cannot hold (accents, Thai, Arabic and the like) are simplified or lost, so English and other Latin-script targets are the safest choice there. VX Ace is UTF-8 and has no such limit. Strings written directly into the Ruby `Scripts` section are out of scope.
+
+**Also for XP / VX / VX Ace:** the [save editor](https://runetranslate.com/save-editor) opens `.rxdata`, `.rvdata` and `.rvdata2` saves. Cheat Mode is an MV and MZ feature.
 
 ---
 
 ## Ren'Py
 
-**Status: Full** — [engine page](https://runetranslate.com/engines/renpy) · [walkthrough](https://runetranslate.com/blog/how-to-translate-renpy-games)
+**Status: Full · ✅ Played** — [engine page](https://runetranslate.com/engines/renpy) · [walkthrough](https://runetranslate.com/blog/how-to-translate-renpy-games)
 
 **Detected by** a `game/` folder, whatever form the scripts are in.
 
-**What comes out:** `say` dialogue, menu choices (including conditional ones), screen and UI text, `_()` / `__()` / `_p()` translatable strings, and text held in Python data structures.
+**What comes out:** `say` dialogue, menu choices (including conditional ones), screen and UI text, `_()` / `__()` / `_p()` translatable strings, speaker names, and text held in Python data structures, plus the text a game shows from its own code: button and HUD labels, notifications, Ren'Py's own prompts, and lines it builds or re-cases while it runs.
 
 **All three packaging forms work:**
 
@@ -92,7 +102,7 @@ The Ruby generation — a genuinely different runtime from MV/MZ (RGSS and Ruby 
 - **Compiled-only** `.rpyc` — decompiled first, so a game that shipped without sources still opens.
 - **Archived** `.rpa` — unpacked, including RPA-2 / 3 / 3.2 / 4.0 and the common vendor variants.
 
-**Export:** translation files written into the copied `game/` folder — a translations bundle, a small language hook, and a `translate <lang> strings:` block — plus a font covering your target's script when the Japanese game shipped none — Korean, Chinese, Thai, Arabic, Greek, Cyrillic and Latin-Extended are all covered. Dialogue is matched by source **text**, not by Ren'Py's generated identifiers, so it survives a game update that renumbers them.
+**Export:** translation files written into the copied `game/` folder (a translations bundle, a small language hook, and a `translate <lang> strings:` block), plus a font covering your target's script when the game's own fonts cannot draw it, including font groups a game builds itself. Korean, Chinese, Thai, Arabic, Greek, Cyrillic and Latin-Extended are all covered. Dialogue is matched by source **text**, not by Ren'Py's generated identifiers, so it survives a game update that renumbers them.
 
 There is also a second export mode that fills in the game's own `game/tl/<language>/` files, keeping every translation identifier the Ren'Py launcher wrote. That is the folder you hand back to a game's developer.
 
@@ -104,17 +114,19 @@ There is also a second export mode that fills in the game's own `game/tl/<langua
 
 **Status: Full · ✅ Played** — [engine page](https://runetranslate.com/engines/kirikiri) · [walkthrough](https://runetranslate.com/blog/how-to-translate-kirikiri-visual-novels)
 
-The workhorse of Japanese commercial visual novels, and the engine with the most archive variants on this list.
+The workhorse of Japanese commercial visual novels.
 
-**Detected by** `.xp3` archives, KrkrZ markers, signed `.exe.emb` / `.xp3.sig` builds, and archives appended inside the `.exe` itself.
+**Detected by** `.xp3` archives, KrkrZ markers, `.exe.emb` / `.xp3.sig` files, and archives appended inside the `.exe` itself.
 
 **What comes out:** KAG `.ks` scenario text, inline `[ruby]` / `[name]` / `[title]` / `[button]` / `[edit]` tag text, and compiled PSB `.scn` scenarios.
 
-**Archive variants:** around 25 XP3 variants ported from the format-research community. An archive appended to the end of the executable is located the same way the engine itself does it.
+**Packed archives** open automatically, with nothing to configure, including the newer format some recent releases use (for the titles RuneTranslate recognises). An archive appended to the end of the executable is located the same way the engine itself does it.
 
 **Export:** loose files under the game's script folders **and** a `patch.xp3`. Two delivery routes on purpose, because no single one is universal — the loose files rely on the game running its own initialization hook, while `patch.xp3` is auto-mounted at higher priority and overrides even when that hook is commented out.
 
-**Out of scope:** non-standard or MDF-compressed PSB scenarios, compiled KAG bytecode, and XP3 variants outside the supported set.
+**Thai:** a Thai export also installs a Thai font for the message text.
+
+**Out of scope:** non-standard or MDF-compressed PSB scenarios, compiled KAG bytecode, and a rare packed-archive format the app does not recognise yet.
 
 ---
 
@@ -126,17 +138,17 @@ The workhorse of Japanese commercial visual novels, and the engine with the most
 
 **What comes out:** map events, common events, database entries and loose script files — messages, choices and database values, while comments and internal reference operands are deliberately left alone.
 
-**Export rebuilds the archive.** This matters more here than anywhere else: Wolf's runtime reads the `.wolf` archive *in preference to* loose files on disk, so a loose-only patch produces a green progress bar and a game still entirely in Japanese. RuneTranslate repacks in the same format the game's own archives declare, verifies the rebuilt archive holds at least what it was built from, and falls back to a documented loose-file delivery only when a rebuild genuinely cannot be produced.
+**Export rebuilds the archive.** This matters more here than anywhere else: Wolf's runtime reads the `.wolf` archive *in preference to* loose files on disk, so a loose-only patch produces a green progress bar and a game still entirely in its original language. RuneTranslate repacks in the same format the game's own archives declare, verifies the rebuilt archive holds at least what it was built from, and falls back to a documented loose-file delivery only when a rebuild genuinely cannot be produced.
 
-**Worth knowing:** Wolf games are usually Shift-JIS, and RuneTranslate can render **Thai** in them by shipping a matching font and repointing the game's font table.
+**Worth knowing:** Wolf RPG 2.20 and 3.x games store text as UTF-8; older games are Shift-JIS, where accented letters are simplified to their base letter. RuneTranslate can still render **Thai** and Vietnamese in those older games by shipping a matching font and repointing the game's font table. A game that ships no `.wolf` archive at all exports as translated loose files.
 
 ---
 
 ## TyranoBuilder / TyranoScript
 
-**Status: Full** — [engine page](https://runetranslate.com/engines/tyranobuilder) · [walkthrough](https://runetranslate.com/blog/how-to-translate-tyranobuilder-games)
+**Status: Full · ✅ Played** — [engine page](https://runetranslate.com/engines/tyranobuilder) · [walkthrough](https://runetranslate.com/blog/how-to-translate-tyranobuilder-games)
 
-**Detected by** `tyrano/tyrano.js` plus `data/scenario/*.ks`, in both packaging shapes: Electron-wrapped (inside `resources/app.asar`) and HTML5 standalone (loose files at the root).
+**Detected by** `tyrano/tyrano.js` plus `data/scenario/*.ks`, in every common packaging shape: Electron-wrapped (inside `resources/app.asar`, or the same tree unpacked), HTML5 standalone (loose files at the root), and NW.js builds packed into the game's `.exe`.
 
 **What comes out:** every `.ks` scenario, the UI strings in `tyrano/lang.js`, `data/system/Config.tjs`, and character display names — which are injected as proper `chara_new` entries so the engine's own character lookup keeps working. Inline KAG tags are masked before translation so a provider cannot mangle them.
 
@@ -160,11 +172,11 @@ The catch-all for custom Electron shells — including Cocos Creator games — t
 
 ## Unity
 
-**Status: Best-effort · ✅ Played** — [engine page](https://runetranslate.com/engines/unity) · [walkthrough](https://runetranslate.com/blog/how-to-translate-unity-games)
+**Status: Full · ✅ Played** — [engine page](https://runetranslate.com/engines/unity) · [walkthrough](https://runetranslate.com/blog/how-to-translate-unity-games)
 
 **Detected by** a `<Name>_Data/` folder.
 
-**What comes out — externalized text, on both Mono and IL2CPP builds:**
+**What comes out, on both Mono and IL2CPP builds:**
 
 - `TextAsset` and `MonoBehaviour` strings from `.assets`, `level*` and asset bundles
 - Localization tables (`m_Array` JSON tables, XUnity.AutoTranslator dictionaries)
@@ -172,15 +184,18 @@ The catch-all for custom Electron shells — including Cocos Creator games — t
 - String literals in a Mono `Assembly-CSharp.dll`, gated on how each one is actually used
 - Packed Addressable bundles, read and rewritten
 - Naninovel scripts, on old and new Unity versions alike
-- Dialogue and item text a game keeps in its own data files or language packs beside the game data
+- PlayMaker dialogue, including lines a game keeps in lists and shows one at a time, written back on export
+- Dialogue and item text a game keeps in its own data files or language packs beside the game data, and JSON data files read value by value, so the names the game reads its data by stay as shipped
 
-**Export:** a full translated copy of the game, with assets patched in place.
+**Export:** a full translated copy of the game, with assets patched in place. On a game that keeps its content in one very large asset bundle, only the parts that hold text are rewritten when memory is short, with exactly the same result.
+
+**Fonts:** when the game's fonts cannot draw your language, the export adds a bundled font for those letters, TextMeshPro included, even in games that manage their own font fallbacks; every other character keeps the font the game draws it with.
 
 **Your own font:** Settings > Engines > *Use my own font* draws every Unity export in a TTF or OTF you pick, TextMeshPro text included, with the game's original letters kept behind yours.
 
 **Arabic:** Unity draws text one letter at a time from left to right, so an export into Arabic, or another language written in Arabic script, writes the text with its letters joined and in right-to-left order. In Naninovel games the dialogue box is switched to right to left too, so each line starts on the right. Games that ship their own Arabic support are left alone.
 
-**Out of scope:** strings compiled into an IL2CPP binary. Control identifiers, localization keys, locale codes and engine wiring are recognised and excluded rather than translated — translating those is the classic cause of a Unity game that hangs on a loading screen with no error at all.
+**Out of scope:** strings compiled into an IL2CPP binary. Control identifiers, localization keys, locale codes, asset labels and other engine wiring are recognised and excluded rather than translated, because translating those is the classic cause of a Unity game that hangs on a loading screen with no error at all. Spine animation data is left as the game shipped it too, so animated characters keep their art.
 
 **If your Unity game shows boxes instead of text:** that is a font issue, and there is a [write-up for it](https://runetranslate.com/blog/unity-translated-text-shows-boxes).
 
@@ -188,29 +203,33 @@ The catch-all for custom Electron shells — including Cocos Creator games — t
 
 ## Unreal Engine 4 / 5
 
-**Status: Best-effort · ✅ Played** — [engine page](https://runetranslate.com/engines/unreal) · [walkthrough](https://runetranslate.com/blog/how-to-translate-unreal-engine-games)
+**Status: Full · ✅ Played** — [engine page](https://runetranslate.com/engines/unreal) · [walkthrough](https://runetranslate.com/blog/how-to-translate-unreal-engine-games)
 
 **Detected by** `<Game>/Content/Paks/*.pak`, or UE5 IoStore `.utoc` / `.ucas` containers.
 
-**What comes out:** the `.locres` UI, menu, system and subtitle text. Every namespace, key and source-string hash is preserved exactly; only the value changes. For games that ship no `.locres` at all, text baked into cooked Blueprint assets can be lifted into a runtime `.locres` override instead.
+**What comes out:** the `.locres` UI, menu, system and subtitle text. Every namespace, key and source-string hash is preserved exactly; only the value changes. Games that keep their text in cooked assets instead (DataTables, widgets, Blueprint text) are read from there when they ship no usable `.locres` of their own, which takes longer because the game files have to be unpacked, and games with loose `.pak` archives also get the inline dialogue their `.locres` misses. Scene names a game reads back to decide what to show are left out, so the translated build does not stop on an empty screen.
 
-**Archives:** `.pak` archives (often Oodle-compressed) and UE5 IoStore containers are opened automatically.
+**Archives:** `.pak` archives (often Oodle-compressed) and UE5 IoStore containers are opened automatically, including games with a mod installed whose container uses another format.
 
-**Export:** a small override `_P.pak` that you drop into `Content/Paks`. Unreal mounts `_P` last, so it shadows the base archives — no re-signing, and a 60 GB game is not duplicated to change its menus. UE5 games whose text is cooked into their packages get the patched packages as an override container instead, and a game that never loads an added archive gets its translation written where the engine looks first.
+**Export:** a small override `_P.pak` that you drop into `Content/Paks`. Unreal mounts `_P` last, so it shadows the base archives: no re-signing, and a 60 GB game is not duplicated to change its menus. When another patch, such as a fan translation, changes the same text, your translation wins. UE5 games whose text is cooked into their packages get the patched packages as an override container instead, and a game that never loads an added archive gets its translation written where the engine looks first.
 
-**Out of scope, and reported rather than silently skipped:** DataTables and general cooked `.uasset` text. Oodle-compressed loose paks need the bundled retoc sidecar or the game's own `oo2core` library.
+**Fonts:** when the game's fonts cannot draw your language, the export adds a font that can, as long as the game keeps its fonts as separate files.
+
+**Out of scope:** on a UE5 IoStore game that ships its own `.locres`, only the `.locres` is read, not dialogue kept in cooked assets beside it. A loose `.pak` whose `.locres` files are Oodle-compressed cannot be read on the `.locres` path, so RuneTranslate tries the game's cooked assets instead, and says so plainly if that finds nothing either.
 
 ---
 
 ## Godot 3.x / 4.x
 
-**Status: Best-effort · ✅ Played** — [engine page](https://runetranslate.com/engines/godot) · [walkthrough](https://runetranslate.com/blog/how-to-translate-godot-games)
+**Status: Full · ✅ Played** — [engine page](https://runetranslate.com/engines/godot) · [walkthrough](https://runetranslate.com/blog/how-to-translate-godot-games)
 
-**Detected by** a `.pck` beside the executable, or a `.pck` embedded inside the `.exe`.
+**Detected by** a `.pck` beside the executable, or a `.pck` embedded inside the `.exe`, on Godot 3 and Godot 4 alike.
 
-**What comes out:** dialogue and UI text from GDScript, scene files, Godot's own compiled `.translation` resources (patched by value, so the game's keys keep resolving), Dialogic timelines, and text the game keeps in its own JSON data files. Godot 4's Zstd-compressed translation tables are read and written too.
+**What comes out:** dialogue and UI text from GDScript, scene files, Godot's own compiled `.translation` resources (patched by value, so the game's keys keep resolving), Dialogic timelines, Dialogue Manager conversations in the order they play, and text the game keeps in its own JSON data files. Godot 4's Zstd-compressed translation tables are read and written too.
 
-**Export:** a repacked, runnable build.
+**Export:** a repacked, runnable build for Godot 3 and Godot 4 games, written back in the pack format the game uses and put back where the game keeps it: re-embedded into a copy of the `.exe`, or as the standalone `.pck` beside it.
+
+**Out of scope:** `.po` catalogs inside the pack are not read yet, and non-Latin targets depend on the game shipping a capable font.
 
 **Worth knowing:** Godot projects are frequently written in English, so RuneTranslate's exclusion rules for this engine work by *position* — is this string a signal name, a constructor argument, a dictionary key? — rather than by guessing from the words. On a real Latin-source game that took 2,839 apparent lines down to the 13 that were actually shown to a player.
 
@@ -218,7 +237,7 @@ The catch-all for custom Electron shells — including Cocos Creator games — t
 
 ## RPG Developer Bakin
 
-**Status: Best-effort · ✅ Played** — [engine page](https://runetranslate.com/engines/bakin)
+**Status: Full · ✅ Played** — [engine page](https://runetranslate.com/engines/bakin)
 
 **Detected by** Bakin's own data layout.
 
@@ -230,7 +249,7 @@ The catch-all for custom Electron shells — including Cocos Creator games — t
 
 ## SRPG Studio
 
-**Status: Best-effort** — [engine page](https://runetranslate.com/engines/srpg-studio) · [walkthrough](https://runetranslate.com/blog/how-to-translate-srpg-studio-games)
+**Status: Full · ✅ Played** — [engine page](https://runetranslate.com/engines/srpg-studio) · [walkthrough](https://runetranslate.com/blog/how-to-translate-srpg-studio-games)
 
 **Detected by** an SRPG Studio `data.dts`.
 
@@ -242,7 +261,7 @@ The catch-all for custom Electron shells — including Cocos Creator games — t
 
 ## NScripter / ONScripter
 
-**Status: Best-effort · ✅ Played** — [engine page](https://runetranslate.com/engines/nscripter) · [walkthrough](https://runetranslate.com/blog/how-to-translate-nscripter-onscripter-games)
+**Status: Full · ✅ Played** — [engine page](https://runetranslate.com/engines/nscripter) · [walkthrough](https://runetranslate.com/blog/how-to-translate-nscripter-onscripter-games)
 
 The classic indie visual-novel engine and its open-source descendant, both of which keep the entire game in one script file at the game root.
 
@@ -260,7 +279,7 @@ The classic indie visual-novel engine and its open-source descendant, both of wh
 
 **Detected by** `.pfs` archives (PF8, PF6 and PF2).
 
-**What comes out:** dialogue, speaker names and choices from the Lua-based `.ast` and `.txt` scripts.
+**What comes out:** dialogue, speaker names and choices from the Lua-based `.ast` and `.txt` scripts and from compiled ASB scenarios.
 
 **Export:** loose files plus an override archive, so the game picks the translation up whichever way it loads its scripts.
 
@@ -270,7 +289,7 @@ The classic indie visual-novel engine and its open-source descendant, both of wh
 
 ## YU-RIS
 
-**Status: Best-effort** — [engine page](https://runetranslate.com/engines/yu-ris) · [walkthrough](https://runetranslate.com/blog/how-to-translate-yu-ris-games)
+**Status: Full · ✅ Played** — [engine page](https://runetranslate.com/engines/yu-ris) · [walkthrough](https://runetranslate.com/blog/how-to-translate-yu-ris-games)
 
 raiL-soft's engine, handled in pure Rust with no external tool.
 
@@ -280,13 +299,13 @@ raiL-soft's engine, handled in pure Rust with no external tool.
 
 **Export:** a loose-file override on a copy of the game.
 
-**Worth knowing:** the engine writes text as CP932, so non-Japanese-charset targets are limited today.
+**Worth knowing:** the engine reads and writes text as CP932, so non-Japanese-charset targets are limited today, and a Chinese or Korean release re-encoded for its market may not read correctly.
 
 ---
 
 ## AliceSoft System 3.x / 4
 
-**Status: Full** — [engine page](https://runetranslate.com/engines/alicesoft) · [walkthrough](https://runetranslate.com/blog/how-to-translate-alicesoft-games)
+**Status: Full · ✅ Played** — [engine page](https://runetranslate.com/engines/alicesoft) · [walkthrough](https://runetranslate.com/blog/how-to-translate-alicesoft-games)
 
 AliceSoft's in-house engine, handled in pure Rust.
 
@@ -296,17 +315,19 @@ AliceSoft's in-house engine, handled in pure Rust.
 
 **Export:** a copy of the game with the translated data dropped in.
 
+**Worth knowing:** the engine stores text as CP932, so targets outside Japanese and Latin script are out of scope, and the app warns you about it.
+
 ---
 
 ## LiveMaker / LiveNovel
 
-**Status: Best-effort** — [engine page](https://runetranslate.com/engines/livemaker)
+**Status: Full · ✅ Played** — [engine page](https://runetranslate.com/engines/livemaker)
 
 **Detected by** a VFF archive at the end of the `.exe`, or a loose `.dat` / `.ext` archive pair.
 
 **What comes out:** dialogue, text-menu choices and caption text from the compiled `.lsb` scenarios. Object names, flow operands, fonts and positions are deliberately left alone.
 
-**Export:** a full runnable copy of the game with the archive repacked into the executable. The rebuilt archive is re-opened and re-parsed before anything is overwritten, so a half-written repack never reaches your output folder.
+**Export:** a full runnable copy of the game with the archive repacked into the executable, or, for a split `.dat` / `.ext` pair, both files rebuilt. The rebuilt archive is re-opened and re-parsed before anything is overwritten, so a half-written repack never reaches your output folder.
 
 **Worth knowing:** LiveMaker text is CP932, so targets outside that character set are out of scope; anything unencodable is flagged rather than silently mangled.
 
@@ -314,7 +335,7 @@ AliceSoft's in-house engine, handled in pure Rust.
 
 ## GameMaker
 
-**Status: Full** - [engine page and step-by-step guide](https://runetranslate.com/engines/gamemaker)
+**Status: Full · ✅ Played** - [engine page and step-by-step guide](https://runetranslate.com/engines/gamemaker)
 
 **Detected by** a GameMaker data file where the runner looks for it: `data.win` beside the Windows executable, `assets/game.unx` in a Linux build, `game.ios` inside a macOS `.app`, or a GameMaker Studio 1.4 game packed into a single executable.
 

@@ -70,9 +70,9 @@ An overlay ignores the game entirely: it captures part of your display, runs opt
 
 ## Translator++ alternative — RuneTranslate vs Translator++
 
-The closest comparison on this page, because both tools do the same *kind* of thing: open the game's own files, put the strings in an editor, and write back a playable build. Neither reads memory at runtime and neither draws an overlay.
+The closest comparison on this page, because both tools do the same *kind* of thing: open the game's own files, put the strings in an editor, and write back a playable build. Neither hooks the game while you play and neither draws an overlay.
 
-The difference is how far the file-level coverage reaches and who decides what is safe to translate. RuneTranslate parses **18 engines and formats itself** — Unity on both Mono and IL2CPP, Unreal 4/5, Godot, Bakin, SRPG Studio, Artemis, YU-RIS, AliceSoft, LiveMaker, GameMaker and the rest — and builds the filters that keep scripts, tags, asset paths and lookup keys *out* of the translation into the extractor, then runs them again at export. It also brings ten translation providers, an [Image Studio](https://runetranslate.com/image-translation) for text painted into artwork, a save editor, Cheat Mode, translation memory and live collaboration in the same app.
+The difference is how far the file-level coverage reaches and who decides what is safe to translate. RuneTranslate parses **18 engines and formats itself** (Unity on both Mono and IL2CPP, Unreal 4/5, Godot, Bakin, SRPG Studio, Artemis, YU-RIS, AliceSoft, LiveMaker, GameMaker and the rest) and builds the filters that keep scripts, tags, asset paths and lookup keys *out* of the translation into the extractor, then runs them again at export. It also brings eleven translation providers, an [Image Studio](https://runetranslate.com/image-translation) for text painted into artwork, a save editor, Cheat Mode, translation memory and live collaboration in the same app.
 
 Translator++ is free and open source (GPL-3.0-or-later), and it holds two places of its own: **RPG Maker 2000 and 2003**, which RuneTranslate has no adapter for, and formats nobody has written a parser for at all, because its Custom Parser lets you define one yourself. Plenty of people keep both.
 
@@ -98,7 +98,7 @@ Where they genuinely differ is the output. Sugoi is primarily a translation *eng
 
 XUnity.AutoTranslator is the standard answer for Unity games and it is genuinely good at what it does: MIT-licensed, widely used, and able to translate text that only exists at runtime — including strings compiled into an IL2CPP binary, which no file patcher can reach.
 
-RuneTranslate takes Unity at the file level instead: `TextAsset` and `MonoBehaviour` strings, localization tables, `StreamingAssets` scripts, packed Addressable bundles and Mono `Assembly-CSharp.dll` literals, with identifier and lookup-key shapes excluded structurally so a translated control id cannot hang the game on a loading screen. What you get is a translated copy of the game rather than a plugin that has to keep running — and the same app handles the other sixteen engines and formats when your next game is not Unity.
+RuneTranslate takes Unity at the file level instead: `TextAsset` and `MonoBehaviour` strings, localization tables, `StreamingAssets` scripts, packed Addressable bundles and Mono `Assembly-CSharp.dll` literals, with identifier and lookup-key shapes excluded structurally so a translated control id cannot hang the game on a loading screen. What you get is a translated copy of the game rather than a plugin that has to keep running, and the same app handles the other seventeen engines and formats when your next game is not Unity.
 
 → [The detailed head-to-head](https://runetranslate.com/compare/xunity-autotranslator)
 
@@ -128,7 +128,7 @@ The cost is that every line goes through recognition first, so stylised fonts, v
 
 **An editor, not just a converter.** Regex filters, a saved rule library, a glossary that locks character names on every provider, an AI refiner that re-reads lines in context, a suspicious-translation scanner, and translation memory so you never pay to translate the same line twice.
 
-**Text inside artwork.** The [Image Studio](https://runetranslate.com/image-translation) detects the Japanese painted into title screens and buttons, rebuilds the art underneath, typesets your translation with real fonts, and bakes it back in the game's own image format. Hooks and OCR overlays cannot touch this; most patchers do not try.
+**Text inside artwork.** The [Image Studio](https://runetranslate.com/image-translation) detects the text painted into title screens and buttons, rebuilds the art underneath, typesets your translation with real fonts, and bakes it back in the game's own image format. Hooks and OCR overlays cannot touch this; most patchers do not try.
 
 **A team can work on one game at once.** Live collaborative projects, with presence and per-line credit. Joining is free.
 

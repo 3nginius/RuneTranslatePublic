@@ -2,7 +2,7 @@
 
 **[← Back to the README](../README.md)** · **[Engines](engines.md)** · **[Troubleshooting](troubleshooting.md)** · **[Download](https://runetranslate.com/download)**
 
-You opened a Japanese game folder and found a file you have never seen before. This page says what it is, which engine wrote it, whether the text inside is plain or compiled, and whether **[RuneTranslate](https://runetranslate.com)** can read it.
+You opened a game folder (Japanese, Chinese, Korean or anything else) and found a file you have never seen before. This page says what it is, which engine wrote it, whether the text inside is plain or compiled, and whether **[RuneTranslate](https://runetranslate.com)** can read it.
 
 Everything here is a *container or data* format. If your file is not listed, check [the engine list](engines.md) — the engine is usually easier to identify than the extension.
 
@@ -39,7 +39,7 @@ The packed archive holding everything the Ruby generation of RPG Maker ships: `D
 
 ### `.rxdata` · `.rvdata` · `.rvdata2` — RPG Maker XP / VX / VX Ace data
 
-Ruby Marshal serialization — the Ruby equivalent of MV/MZ's JSON, holding maps, events and the database. XP and VX store text as Shift-JIS; VX Ace uses UTF-8.
+Ruby Marshal serialization, the Ruby equivalent of MV/MZ's JSON, holding maps, events and the database. XP and VX store text with no encoding tag (Shift-JIS or UTF-8, which RuneTranslate detects per game); VX Ace uses UTF-8.
 **Readable?** Binary. RuneTranslate parses them directly.
 
 ### `.rpgmvp` · `.rpgmvo` · `.rpgmvm` · `.png_` · `.ogg_` · `.m4a_` — packed RPG Maker assets
@@ -78,7 +78,7 @@ The container holding a Ren'Py game's scripts and assets. Versions RPA-2, RPA-3,
 ### `.xp3` — Kirikiri archive
 
 The container almost every Kirikiri visual novel ships. Many publishers use an archive variant of their own rather than the standard one. An `.xp3` can also be appended to the end of the game's `.exe` with no separate file on disk at all.
-**Readable?** Not directly. RuneTranslate supports around 25 known archive variants. → [Kirikiri / KAG](engines.md#kirikiri--kag)
+**Readable?** Not directly. RuneTranslate opens packed archives automatically. → [Kirikiri / KAG](engines.md#kirikiri--kag)
 
 ### `.ks` — KAG scenario script
 
@@ -154,7 +154,7 @@ The compiled string table Unreal loads at runtime: namespaces, keys, and the tex
 
 ### `.uasset` — cooked Unreal asset
 
-Everything else Unreal cooks. Text baked into Blueprints lives here; general `.uasset` text is out of scope, but a game that ships no `.locres` at all can have that text lifted into a runtime `.locres` override instead.
+Everything else Unreal cooks. Text baked into DataTables, widgets and Blueprints lives here. RuneTranslate reads it when a game ships no usable `.locres` of its own, and adds the inline dialogue a loose-pak game's `.locres` misses.
 
 ---
 
@@ -163,7 +163,7 @@ Everything else Unreal cooks. Text baked into Blueprints lives here; general `.u
 ### `.pck` — Godot package
 
 Everything a Godot game ships. It may sit beside the executable, or be **embedded inside the `.exe`** with no `.pck` on disk. Godot 3 and Godot 4 use different layouts.
-**Readable?** Not directly. RuneTranslate unpacks both, embedded included. → [Godot](engines.md#godot-3x--4x)
+**Readable?** Not directly. RuneTranslate unpacks both, embedded included, and writes the translated pack back in the same format. → [Godot](engines.md#godot-3x--4x)
 
 ### `.translation` — Godot compiled translation
 
@@ -187,7 +187,7 @@ The asset containers beside the script. The Image Studio reads images out of the
 
 ### `.pfs` — Artemis archive
 
-The container for Artemis (Mikage) visual novels, in PF8, PF6 and PF2 variants. Dialogue inside lives in `.ast` and `.txt` scripts. → [Artemis](engines.md#artemis-mikage)
+The container for Artemis (Mikage) visual novels, in PF8, PF6 and PF2 variants. Dialogue inside lives in `.ast` and `.txt` scripts or compiled ASB scenarios. → [Artemis](engines.md#artemis-mikage)
 
 ### `.ypf` — YU-RIS package
 
@@ -216,7 +216,7 @@ Under `resources/`. Electron mounts this archive **in preference to** a loose `r
 
 ### `data/scenario/*.ks` — TyranoBuilder scenario
 
-Tyrano inherits KAG's `.ks` scenario format. A Tyrano game may be an Electron build (inside `app.asar`) or loose HTML5 files at the root. → [TyranoBuilder](engines.md#tyranobuilder--tyranoscript)
+Tyrano inherits KAG's `.ks` scenario format. A Tyrano game may be an Electron build (inside `app.asar`), loose HTML5 files at the root, or an NW.js build packed into the game's `.exe`. → [TyranoBuilder](engines.md#tyranobuilder--tyranoscript)
 
 ### `data.win` · `game.unx` · `game.ios` - GameMaker data file
 
@@ -235,7 +235,7 @@ The oldest and most portable localization format going: `.po` is the editable te
 
 ### `.csv` · `.json` · `.xliff` — interchange formats
 
-Not game formats, but the formats a localization pipeline speaks. RuneTranslate's Developer tab imports and exports all of them plus `.po`, with ids and keys preserved, which is the route for an engine nothing on this page covers.
+Not game formats, but the formats a localization pipeline speaks. RuneTranslate's Developer tab (Ultimate) imports and exports all of them plus `.po`, with ids and keys preserved, which is the route for an engine nothing on this page covers. On every plan, a translation patch can also be exported and imported as CSV or JSON.
 
 ---
 
@@ -254,7 +254,7 @@ RuneTranslate's [save editor](https://runetranslate.com/save-editor) opens all o
 | `.save` | Ren'Py |
 | `.sav` | TyranoBuilder / TyranoScript |
 
-Variable and switch names are read from the game itself, so you edit *Gold* rather than *variable 42* — and those Japanese labels can be translated too. Every change autosaves, and the original is backed up on the first edit.
+Variable and switch names are read from the game itself, so you edit *Gold* rather than *variable 42*, and those labels can be translated too. Every change autosaves, and the original is backed up on the first edit.
 
 ---
 

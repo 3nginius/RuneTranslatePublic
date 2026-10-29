@@ -2,7 +2,7 @@
 
 **[← Back to the README](../README.md)** · **[Guides](https://runetranslate.com/blog)** · **[Ask on Discord](https://discord.gg/ZtsfZu7YsW)**
 
-Common problems when translating a Japanese game, and what actually fixes them.
+Common problems when translating a game, and what actually fixes them.
 
 **Before anything else: open the diagnosis page in the app.** It checks the game folder, what the export delivered, fonts and encoding, translation coverage, the game's own crash log, and the individual lines whose shape has broken builds before — then offers a *safe-mode build* that reverts only the risky ones. It is free on every tier, and it answers most of what is on this page without you having to guess which section applies.
 
@@ -12,8 +12,8 @@ Common problems when translating a Japanese game, and what actually fixes them.
 
 - [The translated game will not start](#the-translated-game-will-not-start-crash-or-black-screen-on-launch)
 - [Text shows as boxes, question marks or garbage](#text-shows-as-boxes-question-marks-or-garbage-tofu-mojibake)
-- [The game is still in Japanese after export](#the-game-is-still-in-japanese-after-export)
-- [Some lines are still Japanese, but most are fine](#some-lines-are-still-japanese-but-most-are-fine)
+- [The game is still in its original language after export](#the-game-is-still-in-its-original-language-after-export)
+- [Some lines are still untranslated, but most are fine](#some-lines-are-still-untranslated-but-most-are-fine)
 - [The engine was not detected](#the-engine-was-not-detected)
 - [The export failed](#the-export-failed)
 - [Translation is slow, or stops with a rate limit](#translation-is-slow-or-stops-with-a-rate-limit)
@@ -44,15 +44,15 @@ Almost always one bad line rather than a broken export. Some engines store dialo
 
 This is a **font** problem, not a translation problem. The engine is drawing text correctly — the font it was given simply has no glyph for your characters, so you get boxes (□□□), question marks, or mojibake.
 
-- **Boxes / tofu** → the font lacks the glyph. RuneTranslate bundles fonts where it can: Ren'Py exports include a CJK-capable or Latin-Extended font when the target needs one, and for NScripter, Artemis and Wolf RPG it can ship a purpose-built font to render **Thai** on engines that only ever understood the Japanese character set.
-- **Question marks everywhere** → the target language cannot be encoded in the character set the engine uses at all. Older Shift-JIS engines are limited that way: RPG Maker XP/VX and YU-RIS ship the unmappable characters as `?`, and LiveMaker substitutes look-alikes and then strips what is left, flagging every line it had to change. A Latin-script target is the reliable choice on all three.
+- **Boxes / tofu** → the font lacks the glyph. RuneTranslate adds fonts where it can: Ren'Py, Unity, Unreal and GameMaker exports add a font that can draw your language when the game's own cannot, and for NScripter, Artemis and Wolf RPG it can ship a purpose-built font to render **Thai** on engines that only ever understood the Japanese character set. If boxes remain, replacing the font file in the exported build usually fixes it.
+- **Question marks everywhere** → the target language cannot be encoded in the character set the engine uses at all. Older Shift-JIS engines are limited that way: RPG Maker XP/VX games stored as Shift-JIS and YU-RIS ship the unmappable characters as `?`, and LiveMaker substitutes look-alikes and then strips what is left, flagging every line it had to change. A Latin-script target is the reliable choice on all three.
 - **Mojibake (きちんと → ‚«‚¿‚ñ‚Æ)** → an encoding mismatch. Re-export; if it persists, report it with the engine name, because it means the file's encoding was misread.
 
 Full write-up: **[why translated text shows as boxes](https://runetranslate.com/blog/unity-translated-text-shows-boxes)**
 
 ---
 
-## The game is still in Japanese after export
+## The game is still in its original language after export
 
 You ran the export, it said success, and the game is unchanged. Two likely causes:
 
@@ -64,13 +64,13 @@ For **Kirikiri**, both delivery routes are shipped (loose files *and* a `patch.x
 
 ---
 
-## Some lines are still Japanese, but most are fine
+## Some lines are still untranslated, but most are fine
 
 Four causes, in rough order of likelihood:
 
 1. **The text is in the artwork.** Title screens, menu buttons, HUD labels and CG stamps are pixels, not strings, so no extractor can reach them. That is what the [Image Studio](https://runetranslate.com/image-translation) is for.
-2. **The file was not included in the run.** Check the file selection you made before translating, and check whether a regex exclusion filter caught those lines — excluded rows are shown in red and can be force-translated individually.
-3. **The line came back untranslated.** Run *Scan for suspicious translations*: output that is still Japanese is one of the patterns it flags, and it flips those rows to *Failed* so you can retry them on a different provider.
+2. **The file was not included in the run.** Check the file selection you made before translating, and check whether a regex exclusion filter caught those lines. Excluded rows are hidden by default: tick *show excluded* to see them in red, and force-translate any of them individually.
+3. **The line came back untranslated.** Run *Scan for suspicious translations*: output still in the source language is one of the patterns it flags, and it flips those rows to *Failed* so you can retry them on a different provider.
 4. **The extractor could not reach it.** Open the extraction report — it lists which files were found but not used, and why. If a whole file is listed and it clearly holds dialogue, report it.
 
 ---

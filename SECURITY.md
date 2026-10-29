@@ -1,6 +1,6 @@
 # Security policy
 
-RuneTranslate is a closed-source Windows desktop application distributed from **[runetranslate.com/download](https://runetranslate.com/download)**. This repository holds its public documentation; it contains no application code.
+RuneTranslate is a closed-source desktop application for Windows and Linux, distributed from **[runetranslate.com/download](https://runetranslate.com/download)**. This repository holds its public documentation; it contains no application code.
 
 ## Reporting a vulnerability
 
