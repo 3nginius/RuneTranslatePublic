@@ -140,7 +140,7 @@ The **Image Studio** is for the text painted into a game's artwork: title screen
 | Feature | Tier | What it is |
 |---|---|---|
 | **19-language interface** | Free | The whole app, including the in-app help for every settings tab, in 19 languages, Traditional Chinese included, with a right-to-left layout for Arabic |
-| **Windows and Linux** | Free | Windows 10 / 11, and a native Linux AppImage for desktop Linux and the Steam Deck with the same engines, editor and export. On Linux, games start through Proton or Wine |
+| **Windows, Mac and Linux** | Free | Windows 10 / 11, a native app for Macs with Apple silicon (macOS 13.3 or later, every engine except Bakin), and a native Linux AppImage for desktop Linux and the Steam Deck with the same engines, editor and export. On Linux, games start through Proton or Wine |
 | **App font and size** | Free | Pick the app's own font and scale it from 80% to 140%. It changes RuneTranslate only, never a game |
 | **Game cache** | Free | The files RuneTranslate unpacks from games can live on a drive you choose (Settings > App > Game cache), and the Projects page warns when they pass 5 GB, with a button to clear them |
 | **Updates** | Free | The app checks for new versions on its own; one click downloads an update, it installs when you restart, and a What's New panel shows what changed |

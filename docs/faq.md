@@ -8,13 +8,13 @@
 
 ### What is RuneTranslate?
 
-A desktop app for Windows and Linux that translates a game by reading its own data files. It detects the engine, extracts every line of dialogue, menu text, item name and choice into an editable project, translates them through the provider you choose, and exports a **playable build** in your language. It is not an overlay and not a hook — nothing runs alongside the game afterwards.
+A desktop app for Windows, Mac and Linux that translates a game by reading its own data files. It detects the engine, extracts every line of dialogue, menu text, item name and choice into an editable project, translates them through the provider you choose, and exports a **playable build** in your language. It is not an overlay and not a hook — nothing runs alongside the game afterwards.
 
 Eighteen engines and formats are supported — seventeen game engines plus the gettext `.po` / `.mo` catalog format — and 35 languages.
 
 ### What do I need before I start?
 
-Windows 10 or 11 (x64) or Linux (the Steam Deck included), the game folder, and a free sign-in (Patreon, Google or an email account). That is all. You do not need an API key, a compiler, Python, or any runtime installed first, and you do not need to know anything about the engine your game uses.
+Windows 10 or 11 (x64), macOS 13.3 or newer on Apple silicon (M1 or later), or Linux (the Steam Deck included), the game folder, and a free sign-in (Patreon, Google or an email account). That is all. You do not need an API key, a compiler, Python, or any runtime installed first, and you do not need to know anything about the engine your game uses.
 
 ### How do I translate a game?
 
@@ -206,7 +206,9 @@ Yes, over the open MCP standard. Connect Claude Desktop and talk to it about you
 
 ### Does it run on Linux, macOS or the Steam Deck?
 
-Yes on **Linux and the Steam Deck, natively**: download the Linux AppImage from [runetranslate.com/download](https://runetranslate.com/download), allow it to run as a program (right-click > Properties > Permissions, or `chmod +x`) and open it; on a Steam Deck, do this in Desktop Mode. It has the same engines, providers, editor and export as the Windows version, and it keeps itself up to date. Games, and the few helper tools that are Windows programs, start through Proton or Wine, which you already use to play them. If the AppImage will not start on your system, the Windows version still runs under Wine or Proton. There is no macOS build.
+Yes on **Linux and the Steam Deck, natively**: download the Linux AppImage from [runetranslate.com/download](https://runetranslate.com/download), allow it to run as a program (right-click > Properties > Permissions, or `chmod +x`) and open it; on a Steam Deck, do this in Desktop Mode. It has the same engines, providers, editor and export as the Windows version, and it keeps itself up to date. Games, and the few helper tools that are Windows programs, start through Proton or Wine, which you already use to play them. If the AppImage will not start on your system, the Windows version still runs under Wine or Proton.
+
+Yes on **macOS, natively**, on Macs with Apple silicon (M1 or later) running macOS 13.3 or newer: download the disk image from [runetranslate.com/download](https://runetranslate.com/download), open it and drag RuneTranslate into Applications. It keeps itself up to date. Every engine works except Bakin, which needs the Windows or Linux version for now, and the features that have to start a game itself still need Windows or Linux.
 
 ### Windows says the installer is unrecognised. Is it safe?
 

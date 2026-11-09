@@ -6,10 +6,10 @@
 
 ### Translate Japanese games into English, or any game into any of 35 languages
 
-**A desktop app for Windows and Linux that reads a game's own files, translates every line, and exports a playable build in your language.**
+**A desktop app for Windows, Mac and Linux that reads a game's own files, translates every line, and exports a playable build in your language.**
 RPG Maker, Ren'Py, Kirikiri, Wolf RPG, Unity, Unreal, Godot, GameMaker, NScripter and eight more engines, plus gettext catalogs. No overlay. No hook. No server left running.
 
-[![Download for Windows](https://img.shields.io/badge/Download-Windows%2010%20%2F%2011%20%7C%20Linux-EC4899?style=for-the-badge&logo=windows&logoColor=white)](https://runetranslate.com/download)
+[![Download for Windows](https://img.shields.io/badge/Download-Windows%2010%20%2F%2011%20%7C%20macOS%20%7C%20Linux-EC4899?style=for-the-badge&logo=windows&logoColor=white)](https://runetranslate.com/download)
 [![RuneTranslate website](https://img.shields.io/badge/Website-runetranslate.com-7C9EFF?style=for-the-badge&logo=firefoxbrowser&logoColor=white)](https://runetranslate.com)
 [![Discord community](https://img.shields.io/badge/Discord-Join-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/ZtsfZu7YsW)
 [![Support on Patreon](https://img.shields.io/badge/Patreon-Support-FF424D?style=for-the-badge&logo=patreon&logoColor=white)](https://www.patreon.com/cw/runetranslate/membership)
@@ -53,7 +53,7 @@ RuneTranslate is a file patcher — an MTL tool of the kind fan-translation proj
 - **Runs on your PC.** Translation requests go straight from your machine to the provider you picked, and API keys are encrypted locally and never leave. The only things that reach RuneTranslate's servers are the ones that have to — sign-in, updates, and the cloud features you opt into (translation memory, collaborative projects, the Image Studio's text detection, and the lines you send to RuneLingua)
 - **Every engine, every language and the whole editor are free**, and so is every provider except RuneLingua. Paid plans buy speed, RuneLingua and convenience, not access to engines
 
-> **Windows 10 / 11 (x64), and Linux including the Steam Deck (a native AppImage).** Not affiliated with any engine vendor. Intended for personal and fan-translation use; respect the licence of every game you touch.
+> **Windows 10 / 11 (x64), macOS 13.3 or newer on Apple silicon, and Linux including the Steam Deck (a native AppImage).** Not affiliated with any engine vendor. Intended for personal and fan-translation use; respect the licence of every game you touch.
 
 <div align="center">
 
@@ -67,7 +67,7 @@ RuneTranslate is a file patcher — an MTL tool of the kind fan-translation proj
 
 ## Download and install
 
-**[⬇ Download the Windows installer or the Linux AppImage at runetranslate.com/download](https://runetranslate.com/download)**
+**[⬇ Download the Windows installer, the Mac disk image or the Linux AppImage at runetranslate.com/download](https://runetranslate.com/download)**
 
 Run it, sign in once (with Patreon, Google or an email account), and you are ready. The app checks for new versions on its own; one click downloads an update, and it installs when you restart. There is nothing to compile and no runtime to install first.
 
@@ -304,7 +304,7 @@ Head to head, in detail: **[vs Translator++](https://runetranslate.com/compare/t
 
 ### Is RuneTranslate a rune translator?
 
-No. Despite the name, RuneTranslate has nothing to do with Norse runes, the Elder Futhark alphabet or Viking inscriptions. It is a desktop app for Windows and Linux that translates **video games** — it reads a game's own data files, translates the text inside them, and writes back a playable build in your language.
+No. Despite the name, RuneTranslate has nothing to do with Norse runes, the Elder Futhark alphabet or Viking inscriptions. It is a desktop app for Windows, Mac and Linux that translates **video games** — it reads a game's own data files, translates the text inside them, and writes back a playable build in your language.
 
 ### Is RuneTranslate safe?
 
@@ -394,7 +394,7 @@ This repository is RuneTranslate's public information hub — the app itself is 
 
 <div align="center">
 
-### [⬇️ Download RuneTranslate for Windows and Linux](https://runetranslate.com/download)
+### [⬇️ Download RuneTranslate for Windows, Mac and Linux](https://runetranslate.com/download)
 
 <sub>
 <b>Engines:</b>
