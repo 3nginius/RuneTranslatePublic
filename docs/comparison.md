@@ -72,7 +72,7 @@ An overlay ignores the game entirely: it captures part of your display, runs opt
 
 The closest comparison on this page, because both tools do the same *kind* of thing: open the game's own files, put the strings in an editor, and write back a playable build. Neither hooks the game while you play and neither draws an overlay.
 
-The difference is how far the file-level coverage reaches and who decides what is safe to translate. RuneTranslate parses **18 engines and formats itself** (Unity on both Mono and IL2CPP, Unreal 4/5, Godot, Bakin, SRPG Studio, Artemis, YU-RIS, AliceSoft, LiveMaker, GameMaker and the rest) and builds the filters that keep scripts, tags, asset paths and lookup keys *out* of the translation into the extractor, then runs them again at export. It also brings eleven translation providers, an [Image Studio](https://runetranslate.com/image-translation) for text painted into artwork, a save editor, Cheat Mode, translation memory and live collaboration in the same app.
+The difference is how far the file-level coverage reaches and who decides what is safe to translate. RuneTranslate parses **18 engines and formats itself** (Unity on both Mono and IL2CPP, Unreal 4/5, Godot, Bakin, SRPG Studio, Artemis, YU-RIS, AliceSoft, LiveMaker, GameMaker and the rest) and builds the filters that keep scripts, tags, asset paths and lookup keys *out* of the translation into the extractor, then runs them again at export. It also brings twelve translation providers, an [Image Studio](https://runetranslate.com/image-translation) for text painted into artwork, a save editor, Cheat Mode, translation memory and live collaboration in the same app.
 
 Translator++ is free and open source (GPL-3.0-or-later), and it holds two places of its own: **RPG Maker 2000 and 2003**, which RuneTranslate has no adapter for, and formats nobody has written a parser for at all, because its Custom Parser lets you define one yourself. Plenty of people keep both.
 
@@ -88,7 +88,7 @@ If you want to read one game tonight and never think about it again, a hook is a
 
 ## Sugoi Toolkit alternative — RuneTranslate vs Sugoi Toolkit
 
-Sugoi Toolkit's real value is its bundled offline machine-translation model — you get translation with no API key, no account and no connection. RuneTranslate reaches the same place by a different road: **four providers need no key or account** (free Google, two free DeepL routes, and on-device Gemini Nano), and a local model through Ollama or LM Studio is fully offline with no per-token cost and a far larger choice of models.
+Sugoi Toolkit's real value is its bundled offline machine-translation model — you get translation with no API key, no account and no connection. RuneTranslate reaches the same place by a different road: **five providers need no key or account** (free Google, two free DeepL routes, free Yandex, and on-device Gemini Nano), and a local model through Ollama or LM Studio is fully offline with no per-token cost and a far larger choice of models.
 
 Where they genuinely differ is the output. Sugoi is primarily a translation *engine* plus a hook; RuneTranslate is a patcher with an editor around it, so the result is a build with your corrections in it rather than a session.
 
@@ -124,7 +124,7 @@ The cost is that every line goes through recognition first, so stylised fonts, v
 
 **Eighteen engines and formats in one app.** RPG Maker MV/MZ *and* the Ruby XP/VX/Ace generation, Ren'Py, Kirikiri/KAG, Wolf RPG 2.x and 3.x, TyranoBuilder, Electron and Cocos Creator shells, Unity on both Mono and IL2CPP, Unreal 4/5, Godot, Bakin, SRPG Studio, NScripter/ONScripter, Artemis, YU-RIS, AliceSoft System, LiveMaker, GameMaker and gettext catalogs. Most tools cover one engine family well; this covers the shelf. → **[the full list](engines.md)**
 
-**Eleven translation providers, mixed in one run.** RuneTranslate's own RuneLingua, DeepL, OpenAI, Anthropic Claude, DeepSeek, an OpenAI-compatible endpoint, free Google, two free DeepL routes, on-device Gemini Nano, and your own local model. Provider routing can send menu strings to a free engine and dialogue to a premium one in the same run.
+**Twelve translation providers, mixed in one run.** RuneTranslate's own RuneLingua, DeepL, OpenAI, Anthropic Claude, DeepSeek, an OpenAI-compatible endpoint, free Google, two free DeepL routes, free Yandex, on-device Gemini Nano, and your own local model. Provider routing can send menu strings to a free engine and dialogue to a premium one in the same run.
 
 **An editor, not just a converter.** Regex filters, a saved rule library, a glossary that locks character names on every provider, an AI refiner that re-reads lines in context, a suspicious-translation scanner, and translation memory so you never pay to translate the same line twice.
 

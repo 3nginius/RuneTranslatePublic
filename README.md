@@ -48,7 +48,7 @@ There are only three ways to translate a game: **patch its files**, **hook it wh
 RuneTranslate is a file patcher — an MTL tool of the kind fan-translation projects use — and a thorough one. Point it at a game folder and it identifies the engine, opens the archives, pulls every translatable string (dialogue, choices, item names, skill descriptions, menus, system terms, plugin text) into an editable project, translates them through the provider you pick, and writes a **playable build** into an output folder of your choosing. Your original game is never modified.
 
 - **18 engines and formats**, one workflow — see the [full table](#supported-game-engines-and-file-formats)
-- **11 translation providers**: RuneLingua (RuneTranslate's own engine, on paid plans), DeepL, OpenAI, Claude, DeepSeek, Google, Gemini Nano, a local model, and more. **Four are free and need no API key or account at all**
+- **12 translation providers**: RuneLingua (RuneTranslate's own engine, on paid plans), DeepL, OpenAI, Claude, DeepSeek, Google, Yandex, Gemini Nano, a local model, and more. **Five are free and need no API key or account at all**
 - **35 languages**, source and target — Japanese is the default source, not a hard-coded one
 - **Runs on your PC.** Translation requests go straight from your machine to the provider you picked, and API keys are encrypted locally and never leave. The only things that reach RuneTranslate's servers are the ones that have to — sign-in, updates, and the cloud features you opt into (translation memory, collaborative projects, the Image Studio's text detection, and the lines you send to RuneLingua)
 - **Every engine, every language and the whole editor are free**, and so is every provider except RuneLingua. Paid plans buy speed, RuneLingua and convenience, not access to engines
@@ -81,7 +81,7 @@ The build is not code-signed, so Windows SmartScreen shows an "unrecognised app"
 
 **1. Open the game folder.** *New project* → point it at the game directory. The engine is detected automatically and every translatable string is pulled into a project. A report tells you which files were read and which were skipped, so missing dialogue is never a mystery.
 
-**2. Pick a language and a provider.** Choose your target language and a translation engine — RuneLingua on a paid plan, free Google, free DeepL, DeepL with your key, OpenAI, Claude, DeepSeek, an OpenAI-compatible endpoint, on-device Gemini Nano, or your own local model. You can also tick exactly which of the game's files to include, so a test run costs a few hundred lines instead of the whole game.
+**2. Pick a language and a provider.** Choose your target language and a translation engine — RuneLingua on a paid plan, free Google, free DeepL, free Yandex, DeepL with your key, OpenAI, Claude, DeepSeek, an OpenAI-compatible endpoint, on-device Gemini Nano, or your own local model. You can also tick exactly which of the game's files to include, so a test run costs a few hundred lines instead of the whole game.
 
 **3. Translate, then read it back.** Watch the progress bar and live ETA. Afterwards, work through the editor: find and replace, regex filters, a glossary to lock character names, and an optional AI refiner that re-reads each line in context and fixes stiff first-draft phrasing. On big OpenAI, Claude or DeepSeek runs you get a token and USD estimate *before* anything is sent.
 
@@ -129,7 +129,7 @@ The build is not code-signed, so Windows SmartScreen shows an "unrecognised app"
 
 ## Translation providers
 
-Eleven providers, mixed freely. **Four are free and need no API key or account**: Google Translate, two free DeepL routes, and Gemini Nano on your own PC through Chrome. A local model runs entirely on your own hardware, five more take your own key, and RuneLingua, RuneTranslate's own engine, comes with every paid plan.
+Twelve providers, mixed freely. **Five are free and need no API key or account**: Google Translate, two free DeepL routes, Yandex Translate, and Gemini Nano on your own PC through Chrome. A local model runs entirely on your own hardware, five more take your own key, and RuneLingua, RuneTranslate's own engine, comes with every paid plan.
 
 | Provider | Key needed | Cost | Good for |
 |---|---|---|---|
@@ -137,6 +137,7 @@ Eleven providers, mixed freely. **Four are free and need no API key or account**
 | **Google Translate** (unofficial) | No | Free | Whole games on a budget. The fastest free route — batched, and it falls back automatically when an endpoint pushes back |
 | **DeepL** (unofficial, free) | No | Free | DeepL quality with no account. Deliberately paced, so it suits smaller jobs rather than a 60,000-line RPG |
 | **DeepL Classic / Next-gen** (unofficial, free) | No | Free | The same DeepL quality with no account, over a stateful session — and a choice between DeepL's Classic and Next-gen models |
+| **Yandex Translate** (unofficial, free) | No | Free | Quick, with many lines in each request, and every target language except Chinese (Traditional) |
 | **Gemini Nano** (on-device) | No | Free | Runs inside your own Chrome install — nothing leaves the machine. A small model: slower and rougher than the cloud engines |
 | **Local model** (Ollama / LM Studio) | No | Free, self-hosted | Fully offline LLM translation on your own GPU. No per-token cost, nothing sent anywhere |
 | **DeepL** (official API) | Yes | DeepL's own free tier is 500k chars/month | The best non-LLM quality for long Japanese dialogue |
@@ -254,7 +255,7 @@ Connect Claude Desktop to RuneTranslate over the open MCP standard and just talk
 |---|---|---|---|---|
 | | $0 | $3.99 / month | $5.89 / month | $9.69 / month |
 | All 18 engines & 35 languages | ✅ | ✅ | ✅ | ✅ |
-| 10 providers: free routes, local models and your own keys | ✅ | ✅ | ✅ | ✅ |
+| 11 providers: free routes, local models and your own keys | ✅ | ✅ | ✅ | ✅ |
 | RuneLingua, RuneTranslate's own engine | — | 1.5M characters / month | 2.5M characters / month | 6M characters / month |
 | Full editor, AI refiner, save editor, Cheat Mode core | ✅ | ✅ | ✅ | ✅ |
 | Join a collaborative project | ✅ | ✅ | ✅ | ✅ |
@@ -326,7 +327,7 @@ Yes. The app asks you to sign in on first launch, with Patreon, Google or an ema
 
 ### Do I need an API key to translate a game?
 
-No. Four providers are free and need no key or account: Google Translate, two free DeepL routes, and Gemini Nano running on your own PC through Chrome. A local model through Ollama or LM Studio needs no key either and runs fully offline with no per-token cost, and RuneTranslate's own RuneLingua comes with every paid plan with nothing to set up. Keys are only for DeepL's official API, OpenAI, Anthropic, DeepSeek or an OpenAI-compatible endpoint, if you want those.
+No. Five providers are free and need no key or account: Google Translate, two free DeepL routes, Yandex Translate, and Gemini Nano running on your own PC through Chrome. A local model through Ollama or LM Studio needs no key either and runs fully offline with no per-token cost, and RuneTranslate's own RuneLingua comes with every paid plan with nothing to set up. Keys are only for DeepL's official API, OpenAI, Anthropic, DeepSeek or an OpenAI-compatible endpoint, if you want those.
 
 ### What do I get at the end — a patch, or a copy of the game?
 

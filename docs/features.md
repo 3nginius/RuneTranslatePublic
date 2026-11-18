@@ -33,7 +33,7 @@ Prices are for paying directly on [runetranslate.com/upgrade](https://runetransl
 | Feature | Tier | What it is |
 |---|---|---|
 | **All 18 engines and formats** | Free | No engine is paid-only. [Full list](engines.md) |
-| **10 translation providers** | Free | Every provider except RuneLingua works on the free tier. Four need no API key or account at all: Google Translate, two free DeepL routes, and Gemini Nano on your own PC through Chrome. A local model runs on your own hardware for free, and the other five take your own key |
+| **11 translation providers** | Free | Every provider except RuneLingua works on the free tier. Five need no API key or account at all: Google Translate, two free DeepL routes, Yandex Translate, and Gemini Nano on your own PC through Chrome. A local model runs on your own hardware for free, and the other five take your own key |
 | **RuneLingua** | Supporter | RuneTranslate's own translation engine, on our GPU: no API key, no account anywhere else, all 35 target languages. Metered by a monthly character allowance (Supporter 1.5M, Pro 2.5M, Ultimate 6M) shown next to the provider picker, with a preview of what a large run will use before it starts. Lines answered from translation memory and excluded lines cost nothing |
 | **Batch API** | Free | With your own Anthropic or OpenAI key, send the pending lines of the files you pick through the provider's Batch API at about half the normal price. Results come back within 24 hours and fill in on their own; lines you edit in the meantime are never overwritten |
 | **35 source and target languages** | Free | Any of the 35 can be the source; Japanese is only the default |

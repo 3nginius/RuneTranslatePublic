@@ -72,7 +72,7 @@ One on free, 10 on Supporter, 30 on Pro, 100 on Ultimate. It counts projects sit
 
 ### Do I need an API key?
 
-No. Four providers are free and need no key or account: Google Translate, two free DeepL routes, and Gemini Nano running on your own PC through Chrome. A local model via Ollama or LM Studio needs no key either and runs fully offline with no per-token cost, and RuneTranslate's own RuneLingua comes with every paid plan with nothing to set up.
+No. Five providers are free and need no key or account: Google Translate, two free DeepL routes, Yandex Translate, and Gemini Nano running on your own PC through Chrome. A local model via Ollama or LM Studio needs no key either and runs fully offline with no per-token cost, and RuneTranslate's own RuneLingua comes with every paid plan with nothing to set up.
 
 Keys are only needed if you *want* DeepL's official API, OpenAI, Anthropic, DeepSeek, or an OpenAI-compatible endpoint like OpenRouter. With an Anthropic or OpenAI key you can also send a project through their Batch API, at about half the normal price, with results back within 24 hours.
 
